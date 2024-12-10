@@ -1,0 +1,29 @@
+:root{
+    --bd-color:#d3e5fe;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    background-color: var(--bd-color);
+}
+.login-container{
+    width: 30%;
+}
+#valid{
+    height: 40px;
+    padding-top: 5px;
+    padding-left: 10px;
+    font-size: 14px;
+}
+.custom-btn{
+    color: #000;
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    background-color: var(--bd-color);
+}
