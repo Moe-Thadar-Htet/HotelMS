@@ -286,7 +286,7 @@
             <div class="row gy-5">
 
               <div class="col-lg-4 menu-item">
-                <a href="../asset/img2/menu/menu-item-1.png" class="glightbox"><img src="asset/img/menu/menu-item-1.png" class="menu-img img-fluid" alt=""></a>
+                <a href="../asset/img2/menu/menu-item-1.png" class="glightbox"><img src="../asset/img2/menu/menu-item-1.png" class="menu-img img-fluid" alt=""></a>
                 <h4>Magnam Tiste</h4>
                 <p class="ingredients">
                   Lorem, deren, trataro, filede, nerada
@@ -297,7 +297,7 @@
               </div><!-- Menu Item -->
 
               <div class="col-lg-4 menu-item">
-                <a href="../asset/img2/menu/menu-item-2.png" class="glightbox"><img src="asset/img/menu/menu-item-2.png" class="menu-img img-fluid" alt=""></a>
+                <a href="../asset/img2/menu/menu-item-2.png" class="glightbox"><img src="../asset/img2/menu/menu-item-2.png" class="menu-img img-fluid" alt=""></a>
                 <h4>Aut Luia</h4>
                 <p class="ingredients">
                   Lorem, deren, trataro, filede, nerada
@@ -308,7 +308,7 @@
               </div><!-- Menu Item -->
 
               <div class="col-lg-4 menu-item">
-                <a href="../asset/img2/menu/menu-item-3.png" class="glightbox"><img src="asset/img/menu/menu-item-3.png" class="menu-img img-fluid" alt=""></a>
+                <a href="../asset/img2/menu/menu-item-3.png" class="glightbox"><img src="../asset/img2/menu/menu-item-3.png" class="menu-img img-fluid" alt=""></a>
                 <h4>Est Eligendi</h4>
                 <p class="ingredients">
                   Lorem, deren, trataro, filede, nerada
@@ -319,7 +319,7 @@
               </div><!-- Menu Item -->
 
               <div class="col-lg-4 menu-item">
-                <a href="../asset/img2/menu/menu-item-4.png" class="glightbox"><img src="asset/img/menu/menu-item-4.png" class="menu-img img-fluid" alt=""></a>
+                <a href="../asset/img2/menu/menu-item-4.png" class="glightbox"><img src="../asset/img2/menu/menu-item-4.png" class="menu-img img-fluid" alt=""></a>
                 <h4>Eos Luibusdam</h4>
                 <p class="ingredients">
                   Lorem, deren, trataro, filede, nerada
@@ -330,7 +330,7 @@
               </div><!-- Menu Item -->
 
               <div class="col-lg-4 menu-item">
-                <a href="../asset/img2/menu/menu-item-5.png" class="glightbox"><img src="asset/img/menu/menu-item-5.png" class="menu-img img-fluid" alt=""></a>
+                <a href="../asset/img2/menu/menu-item-5.png" class="glightbox"><img src="../asset/img2/menu/menu-item-5.png" class="menu-img img-fluid" alt=""></a>
                 <h4>Eos Luibusdam</h4>
                 <p class="ingredients">
                   Lorem, deren, trataro, filede, nerada
@@ -341,7 +341,7 @@
               </div><!-- Menu Item -->
 
               <div class="col-lg-4 menu-item">
-                <a href="../asset/img2/menu/menu-item-6.png" class="glightbox"><img src="asset/img/menu/menu-item-6.png" class="menu-img img-fluid" alt=""></a>
+                <a href="../asset/img2/menu/menu-item-6.png" class="glightbox"><img src="../asset/img2/menu/menu-item-6.png" class="menu-img img-fluid" alt=""></a>
                 <h4>Laboriosam Direva</h4>
                 <p class="ingredients">
                   Lorem, deren, trataro, filede, nerada
