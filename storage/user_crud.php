@@ -1,7 +1,7 @@
 <?php 
 function  add_user($mysqli,$user_name,$email,$password,$role)
 {
-    $sql = "INSERT INTO `user` (`user_name`,` email`,`password`,`role`) VALUE ('$user_name','$email','$password','$role')";
+    $sql = "INSERT INTO `user` (`user_name`,`email`,`password`,`role`) VALUE ('$user_name','$email','$password','$role')";
     return $mysqli->query($sql);
 }
 function get_user($mysqli)
@@ -13,6 +13,13 @@ function get_user($mysqli)
 function get_user_id($mysqli,$id)
 {
     $sql = "SELECT * FROM `user` WHERE `id` = $id";
+    $result = $mysqli->query($sql);
+    return $result->fetch_assoc();
+}
+
+function get_user_with_email($mysqli,$email)
+{
+    $sql = "SELECT * FROM `user` WHERE `email` = '$email'";
     $result = $mysqli->query($sql);
     return $result->fetch_assoc();
 }

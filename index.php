@@ -1,3 +1,68 @@
+<?php require_once("./storage/db.php")?>
+<?php require_once("./storage/user_crud.php")?>
+
+
+
+<?php 
+if(isset($_COOKIE['user'])){
+    header(header: "location:./home.php");
+}
+
+if (isset($_POST["logout"])){
+    setcookie("user", "", -1, "/");
+}
+?>
+
+
+<?php 
+    $user = get_user($mysqli);
+    $user = $user->fetch_all();
+    $admin = array_filter($user,function($user){
+        return $user["4"] == 1;
+    });
+    if(!$admin){
+        $admin_password = password_hash("admin", PASSWORD_BCRYPT);
+        add_user($mysqli,"admin","admin@gmail.com",$admin_password,1);
+    }
+
+    $email =  $email_err ="";
+    $password = $password_err ="";
+
+    if(isset($_POST["email"])){
+        $email =  $mysqli->real_escape_string($_POST['email']);
+        $password = $mysqli->real_escape_string($_POST['password']);
+
+        if($email === ""){
+            $email_err= "User Email Cannot be blanked!";
+        }
+        
+        if($password === ""){
+            $password_err = "User Password Cannot be blanked!";
+        }
+
+        if($email_err === "" && $password_err === ""){
+            $user = get_user_with_email($mysqli,$email);
+            if(!$user){
+                $email_err = "User Email does not exist";
+            }else{
+            if(password_verify($password,$user['password'])){
+                setcookie('user', json_encode($user), time()+1000*60*60*24*2,'');
+                header('location:./home.php');
+            }else{
+                $password_err = "User Password does not match!";
+
+
+            }
+        }
+
+    }
+}
+
+
+
+?>
+
+    
 
 <!DOCTYPE html>
 <html lang="en">
@@ -11,23 +76,25 @@
     <script src="./asset/js/jquery.min.js"></script>
 </head>
 <body>
-    <?php require_once("./storage/db.php") ?>
+    <div class="main">
 
-    
-        <div class="card mx-auto mt-5 login-container">
+        <div class="card mx-auto my-5 login-container">
             <div class="card-body p-4">
                 <h3 class="text-center">LogIn Form</h3>
+                <?php if (isset($_GET['invalid'])) {?>
+                    <div class="alert alert-danger "><?= $_GET['invalid'] ?></div>
+                <?php } ?>
                 <form method="post">
                     <div class="form-floating mt-5">
-                        <input type="email" name="email" class="form-control" id="email" placeholder="Enter your email"/>
+                        <input type="email" name="email" class="form-control" id="email" value="<?= $email?>" placeholder="Enter your email"/>
                         <label for="email" class="form-label">User Email</label>
-                        <div id="valid"></div>
+                        <div id="valid"><?= $email_err?></div>
                     </div>
 
                     <div class="form-floating mt-2">
-                        <input type="password" name="password" class="form-control" id="password" placeholder="Enter your password"/>
+                        <input type="password" name="password" class="form-control" id="password" value="<?= $password?>"  placeholder="Enter your password"/>
                         <label for="password" class="form-label">Password</label>
-                        <div id="valid"></div>
+                        <div id="valid"><?= $password_err?></div>
                     </div>
 
                     <div class="form-check">
@@ -51,42 +118,7 @@
                }
             })
         </script>
-        
-
-   
-    <!-- <div class="card  login-container">
-        <div class="card-body">
-            <h2 class="text-center">Login Form</h2>
-            <form method="post">
-                <div class="form-floating my-5">
-                    <input type="email" class="form-control" id="email" placeholder="name@gmail.com">
-                    <label for="email">Email address</label>
-                </div>
-                <div class="form-floating mt-5 mb-2">
-                    <input type="password" class="form-control" id="password" placeholder="password">
-                    <label for="password">Password</label>
-                </div>
-                <div class="form-check">
-                    <input type="checkbox" id="show" class="form-check-input">
-                    <label class="form-check-label" for="show">
-                        Show Password
-                    </label>
-                </div>
-                <button class="custom-btn mt-3">LOGIN</button>
-            </form>  
-        </div>
-    </div>
-    <script>
-        let show = $("#show");
-        let password = $("#password");
-        show.on("click",()=>{
-            if(show.is(":checked")){
-                password.get(0).type = "text";
-            }else{
-                password.get(0).type = "password";
-            }
-        })
-    </script> -->
+    </di>
 </body>
 </html>
-
+        
