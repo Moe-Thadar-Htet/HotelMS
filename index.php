@@ -577,7 +577,7 @@
         <!-- You can delete the links only if you've purchased the pro version. -->
         <!-- Licensing information: https://bootstrapmade.com/license/ -->
         <!-- Purchase the pro version with working PHP/AJAX contact form: [buy-url] -->
-        Designed by <a href="https://bootstrapmade.com/">Min A Fay Ngar</a>
+        Designed by <a href="https://bootstrapmade.com/">Che Guevara</a>
       </div>
     </div>
 
