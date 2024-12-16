@@ -19,7 +19,7 @@
 <body>
 
     <!-- Admin_Navigation_Bar -->
-    <div id="nav" class="navbar navbar-dark navbar-expand fixed-top" style="background-color: #161616;">
+    <div id="nav" class="navbar navbar-dark navbar-expand fixed-top" style="background-color: #1A1A1A;">
         <div class="container">
             <a href="index.html" class="navbar-brand me-5" style="color: #F5F5F5;">
                 ADMIN
@@ -27,43 +27,100 @@
 
             <ul class="navbar-nav">
             <li class="nav-item">
-                    <a href="#" class="nav-link active">
-                        <span class="nav-text btn btn-outline-info ms-auto">All Rooms</span>
+                    <a href="#" class="nav-link" >
+                        <span class="nav-text btn btn-outline-info ms-auto" id="all-room">All Rooms</span>
                     </a>
                     <li>
                 <li class="nav-item">
                     <a href="#" class="nav-link active">
-                        <span class="nav-text btn btn-outline-success ms-auto">Available</span>
+                        <span class="nav-text btn btn-outline-success ms-auto" id="available">Available</span>
                     </a>
                     <li>
                         <li class="nav-item">
                             <a href="#" class="nav-link active">
-                                <span class="nav-text btn btn-outline-danger ms-auto">Sold Out</span>
+                                <span class="nav-text btn btn-outline-danger ms-auto" id="sold-out">Sold Out</span>
                             </a>
                         </li>
                     </li>
                 </li>
                 <li class="nav-item">
                     <a href="#" class="nav-link active">
-                        <span class="nav-text btn btn-outline-primary ms-auto">Daily Income</span>
+                        <span class="nav-text btn btn-outline-primary ms-auto" id="daily-income">Daily Income</span>
                     </a>
                 </li>
                 <li class="nav-item">
                     <a href="#" class="nav-link active">
-                        <span class="nav-text btn btn-outline-warning ms-auto">Add Room</span>
+                        <span class="nav-text btn btn-outline-warning ms-auto" id="add-room">Add Room</span>
                     </a>
                     <li>
                 <div class="dropdown">
-                <button class="btn btn-secondary dropdown-toggle" type="button" id="profileDropdown" data-bs-toggle="dropdown" aria-expanded="false" style="margin-top: 8px;">
-                    Profile
-                </button>
-                <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="profileDropdown">
-                    <li><a class="dropdown-item" href="#">Profile</a></li>
-                    <li><a class="dropdown-item" href="#">Logout</a></li>
-                </ul>
-            </div>
+                    <button class="btn btn-secondary dropdown-toggle" type="button" id="profileDropdown" data-bs-toggle="dropdown" aria-expanded="false" style="margin-top: 8px;">
+                        Profile
+                    </button>
+                    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="profileDropdown">
+                        <li>
+                            <a class="dropdown-item d-flex justify-content-between align-items-center" href="#">
+                                Profile <i class="fa fa-user"></i>
+                            </a>
+                        </li>
+                        <li>
+                            <a class="dropdown-item d-flex justify-content-between align-items-center" href="#">
+                                Logout <i class="fa fa-sign-out-alt"></i>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+
             </ul>
             
         </div>
     </div>
 </body>
+
+<script>
+    // Get references to all buttons
+    let allroom = document.getElementById("all-room");
+    let available = document.getElementById("available");
+    let soldout = document.getElementById("sold-out");
+    let dailyincome = document.getElementById("daily-income");
+    let addroom = document.getElementById("add-room");
+
+    let buttons = [allroom, available, soldout, dailyincome, addroom];
+
+    function resetButtonStyles() {
+        buttons.forEach(button => {
+            button.style.background = "";
+            button.style.color = "";
+        });
+    }
+
+    allroom.addEventListener("click", () => {
+        resetButtonStyles();
+        allroom.style.background = "#10CAF0";
+        allroom.style.color = "#FFFFFF";
+    });
+
+    available.addEventListener("click", () => {
+        resetButtonStyles();
+        available.style.background = "#198753";
+        available.style.color = "#FFFFFF";
+    });
+
+    soldout.addEventListener("click", () => {
+        resetButtonStyles();
+        soldout.style.background = "#DC3444";
+        soldout.style.color = "#FFFFFF";
+    });
+
+    dailyincome.addEventListener("click", () => {
+        resetButtonStyles();
+        dailyincome.style.background = "#0C6DFD";
+        dailyincome.style.color = "#FFFFFF";
+    });
+
+    addroom.addEventListener("click", () => {
+        resetButtonStyles();
+        addroom.style.background = "#FFC007";
+        addroom.style.color = "#FFFFFF";
+    });
+</script>
