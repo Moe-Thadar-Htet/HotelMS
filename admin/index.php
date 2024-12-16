@@ -28,34 +28,34 @@
             <ul class="navbar-nav">
             <li class="nav-item">
                     <a href="#" class="nav-link" >
-                        <span class="nav-text btn btn-outline-info ms-auto" id="all-room">All Rooms</span>
+                        <span class="nav-text btn btn-outline-info ms-auto" id="all-room">All Rooms <i class="fa fa-bed"></i></span>
                     </a>
                     <li>
                 <li class="nav-item">
                     <a href="#" class="nav-link active">
-                        <span class="nav-text btn btn-outline-success ms-auto" id="available">Available</span>
+                        <span class="nav-text btn btn-outline-success ms-auto" id="available">Available <i class="fa fa-broom"></i></span>
                     </a>
                     <li>
                         <li class="nav-item">
                             <a href="#" class="nav-link active">
-                                <span class="nav-text btn btn-outline-danger ms-auto" id="sold-out">Sold Out</span>
+                                <span class="nav-text btn btn-outline-danger ms-auto" id="sold-out">Sold Out<i class="fa fa-exclamation-triangle" style="padding-left: 5px;"></i></span>
                             </a>
                         </li>
                     </li>
                 </li>
                 <li class="nav-item">
                     <a href="#" class="nav-link active">
-                        <span class="nav-text btn btn-outline-primary ms-auto" id="daily-income">Daily Income</span>
+                        <span class="nav-text btn btn-outline-primary ms-auto" id="daily-income">Daily Income<i class="fa fa-dollar-sign" style="padding-left: 5px;"></i></span>
                     </a>
                 </li>
                 <li class="nav-item">
                     <a href="#" class="nav-link active">
-                        <span class="nav-text btn btn-outline-warning ms-auto" id="add-room">Add Room</span>
+                        <span class="nav-text btn btn-outline-warning ms-auto" id="add-room">Add Room<i class="fa fa-plus" style="padding-left: 5px;"></i>
+                        </span>
                     </a>
                     <li>
                 <div class="dropdown">
                     <button class="btn btn-secondary dropdown-toggle" type="button" id="profileDropdown" data-bs-toggle="dropdown" aria-expanded="false" style="margin-top: 8px;">
-                        Profile
                     </button>
                     <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="profileDropdown">
                         <li>
@@ -97,7 +97,7 @@
     allroom.addEventListener("click", () => {
         resetButtonStyles();
         allroom.style.background = "#10CAF0";
-        allroom.style.color = "#FFFFFF";
+        allroom.style.color = "#000000";
     });
 
     available.addEventListener("click", () => {
@@ -121,6 +121,6 @@
     addroom.addEventListener("click", () => {
         resetButtonStyles();
         addroom.style.background = "#FFC007";
-        addroom.style.color = "#FFFFFF";
+        addroom.style.color = "#000000";
     });
 </script>
