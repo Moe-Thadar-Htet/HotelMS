@@ -5,9 +5,8 @@
         let available = document.getElementById("available");
         let soldout = document.getElementById("sold-out");
         let dailyincome = document.getElementById("daily-income");
-        let addroom = document.getElementById("add-room");
     
-        let buttons = [allroom, available, soldout, dailyincome, addroom];
+        let buttons = [allroom, available, soldout, dailyincome];
     
         function resetButtonStyles() {
             buttons.forEach(button => {
@@ -38,12 +37,6 @@
             resetButtonStyles();
             dailyincome.style.background = "#0C6DFD";
             dailyincome.style.color = "#FFFFFF";
-        });
-    
-        addroom.addEventListener("click", () => {
-            resetButtonStyles();
-            addroom.style.background = "#FFC007";
-            addroom.style.color = "#000000";
         });
     </script>
 </body>

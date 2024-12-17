@@ -2,7 +2,7 @@
 <div id="nav" class="navbar navbar-dark navbar-expand fixed-top" style="background-color: #1A1A1A;">
         <div class="container">
             <a href="index.html" class="navbar-brand me-5" style="color: #F5F5F5;">
-                ADMIN
+                Reception
             </a>
 
             <ul class="navbar-nav">
@@ -28,12 +28,12 @@
                         <span class="nav-text btn btn-outline-primary ms-auto" id="daily-income">Daily Income<i class="fa fa-dollar-sign" style="padding-left: 5px;"></i></span>
                     </a>
                 </li>
-                <li class="nav-item">
+                <!-- <li class="nav-item">
                     <a href="#" class="nav-link active">
                         <span class="nav-text btn btn-outline-warning ms-auto" id="add-room">Add Room<i class="fa fa-plus" style="padding-left: 5px;"></i>
                         </span>
                     </a>
-                    <li>
+                    <li> -->
                 <div class="dropdown">
                     <button class="btn btn-secondary dropdown-toggle" type="button" id="profileDropdown" data-bs-toggle="dropdown" aria-expanded="false" style="margin-top: 8px;">
                     </button>
