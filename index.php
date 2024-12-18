@@ -97,10 +97,14 @@ if (isset($_POST["logout"])){
                         <div id="valid"><?= $password_err?></div>
                     </div>
 
-                    <div class="form-check">
-                        <input type="checkbox" class="form-check-input" id="showpassword"/>
-                        <label for="showpassword" class="form-check-label">Show password</label>
+                    <div class="form-check d-flex align-items-center justify-content-between mt-3">
+                        <div>
+                            <input type="checkbox" class="form-check-input" id="showpassword"/>
+                            <label for="showpassword" class="form-check-label">Show password</label>
+                        </div>
+                        <a href="forgot_password.php" class="btn btn-link p-0 text-decoration-none">Forgot Password?</a>
                     </div>
+
                     <button class="custom-btn mt-3 ">Log In</button>
                 </form>
             </div>
