@@ -15,14 +15,14 @@ if (isset($_POST["logout"])){
 
 
 <?php 
-    $user = get_user($mysqli);
-    $user = $user->fetch_all();
-    $admin = array_filter($user,function($user){
-        return $user["4"] == 1;
+    $result = get_user($mysqli);
+    $users = $result->fetch_all();
+    $admin = array_filter($users,function($user){
+        return $user["5"] == 1;
     });
     if(!$admin){
         $admin_password = password_hash("admin", PASSWORD_BCRYPT);
-        add_user($mysqli,"admin","admin@gmail.com",$admin_password,1);
+        add_user($mysqli,"admin","admin@gmail.com",$admin_password,"0911111",1);
     }
 
     $email =  $email_err ="";

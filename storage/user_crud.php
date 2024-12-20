@@ -1,7 +1,7 @@
 <?php 
-function  add_user($mysqli,$user_name,$email,$password,$role)
+function  add_user($mysqli,$user_name,$email,$password,$phone_number,$role)
 {
-    $sql = "INSERT INTO `user` (`user_name`,`email`,`password`,`role`) VALUE ('$user_name','$email','$password','$role')";
+    $sql = "INSERT INTO `user` (`user_name`,`email`,`password`,`phone_number`,`role`) VALUE ('$user_name','$email','$password','$phone_number','$role')";
     return $mysqli->query($sql);
 }
 function get_user($mysqli)
@@ -33,6 +33,12 @@ function delete_user($mysqli,$id)
 function update_user($mysqli,$id,$user_name,$email,$password,$role)
 {
     $sql = "UPDATE `user` SET `user_name` = '$user_name', `email` = '$email', `password` = '$password', `role` = '$role' WHERE `id` = $id";
+    return $mysqli->query($sql);
+}
+
+function update_password($mysqli,$id,$password){
+    $hashPassword = password_hash($password,PASSWORD_BCRYPT);
+    $sql = "UPDATE `user` SET  `password` = '$hashPassword' WHERE `id` = $id";
     return $mysqli->query($sql);
 }
 
