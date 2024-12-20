@@ -13,68 +13,34 @@ if(isset($_COOKIE['reset_user'])){
 
 if (isset($_POST["email"])) {
     $user = get_user_with_email($mysqli, $_POST["email"]);
-    setcookie('reset_user', json_encode($user), time()+1000*60*5,'');
-    $step = 2;
+    if(!$user){
+        $error_message = "User doesn't match!";
+    }else{
+        setcookie('reset_user', json_encode($user), time()+1000*60*5,'');
+        $step = 2;
+    }
 }
 
 if (isset($_POST['username'])) {
     if ($user['user_name'] != $_POST['username']) {
         $error_message = "User doesn't match!";
+        $step = 2;
+    }else{
+        $step = 3;
     }
-    $step = 3;
 }
 if (isset($_POST['phone'])) {
     if ($user['phone_number'] != $_POST['phone']) {
         $error_message = "Phone Number doesn't match!";
-    }
+        $step = 3;
+    }else{
     $step = 4;
+    }
 }
 if (isset($_POST['new_password'])) {
     update_password($mysqli, $user['id'], $_POST['new_password']);
     $step = 5;
 }
-
-// try {
-//     $pdo = new PDO("mysql:host=$host;dbname=$dbname", $username, $password);
-//     $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-// } catch(\throwable $th){
-//     echo "Cannot connect the database!";
-//     die();
-// }
-
-// if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-//     $email = $_POST['email'];
-//     $username = $_POST['username'];
-//     $phonenumber = $_POST['phonenumber'];
-//     $new_password = $_POST['new_password'];
-
-//     $stmt = $pdo->prepare("SELECT * FROM user WHERE email = :email");
-//     $stmt->execute(['email' => $email]);
-//     $user = $stmt->fetch(PDO::FETCH_ASSOC);
-
-//     if (!$user) {
-//         echo json_encode(["error" => "Invalid email."]);
-//         exit;
-//     }
-
-//     if ($user['username'] !== $username) {
-//         echo json_encode(["error" => "Invalid username."]);
-//         exit;
-//     }
-
-//     if ($user['phonenumber'] !== $phonenumber) {
-//         echo json_encode(["error" => "Invalid phone number."]);
-//         exit;
-//     }
-
-//     $hashed_password = password_hash($new_password, PASSWORD_BCRYPT);
-
-//     $update_stmt = $pdo->prepare("UPDATE users SET password = :password WHERE email = :email");
-//     $update_stmt->execute(['password' => $hashed_password, 'email' => $email]);
-
-//     echo json_encode(["message" => "Password updated successfully."]);
-//     header(header: "location:./index.php");
-// }
 ?>
 
 
@@ -91,10 +57,10 @@ if (isset($_POST['new_password'])) {
     <div class="main">
         <div class="card mx-auto my-5 forgot-password-container">
             <div class="card-body p-4">
-                <h3 class="text-center">Forgot Password - Step 1</h3>`
+                <h3 class="text-center">Forgot Password - Step 1</h3>
                 <p class="text-center text-muted">Enter your registered email address.</p>
-                <?php if (isset($_GET['error'])) { ?>
-                    <div class="alert alert-danger"><?= $_GET['error'] ?></div>
+                <?php if(!empty($error_message)) { ?>
+                    <div class="alert alert-danger"><?= $error_message ?></div>
                 <?php } ?>
                 <form method="post">
                     <div class="form-floating mt-4">
@@ -115,8 +81,8 @@ if (isset($_POST['new_password'])) {
             <div class="card-body p-4">
                 <h3 class="text-center">Forgot Password - Step 2</h3>
                 <p class="text-center text-muted">Enter your username associated with the email.</p>
-                <?php if (isset($_GET['error'])) { ?>
-                    <div class="alert alert-danger"><?= $_GET['error'] ?></div>
+                <?php if(!empty($error_message)) { ?>
+                    <div class="alert alert-danger"><?= $error_message ?></div>
                 <?php } ?>
                 <form method="post" >
                     <div class="form-floating mt-4">
@@ -134,8 +100,8 @@ if (isset($_POST['new_password'])) {
             <div class="card-body p-4">
                 <h3 class="text-center">Forgot Password - Step 3</h3>
                 <p class="text-center text-muted">Enter your registered phone number.</p>
-                <?php if (isset($_GET['error'])) { ?>
-                    <div class="alert alert-danger"><?= $_GET['error'] ?></div>
+                <?php if(!empty($error_message)) { ?>
+                    <div class="alert alert-danger"><?= $error_message ?></div>
                 <?php } ?>
                 <form method="post" >
                     <div class="form-floating mt-4">
