@@ -20,24 +20,36 @@ function create_tables($mysqli)
     if(!$mysqli->query($sql)){
         return false;
     }
-    $sql = "CREATE TABLE IF NOT EXISTS `bed`(`id` INT AUTO_INCREMENT,`bed_name` VARCHAR(45) NOT NULL,PRIMARY KEY(`id`))";
+    // $sql = "CREATE TABLE IF NOT EXISTS `bed`(`id` INT AUTO_INCREMENT,`bed_name` VARCHAR(45) NOT NULL,`description` VARCHAR(100) NOT NULL,PRIMARY KEY(`id`))";
+    // if (!$mysqli->query($sql)) {
+    //     return false;
+    // }
+    $sql = "CREATE TABLE IF NOT EXISTS `room_type`(`id` INT AUTO_INCREMENT,`room_type_name` VARCHAR(45) NOT NULL,`description` VARCHAR(100) NOT NULL, PRIMARY KEY(`id`))";
     if (!$mysqli->query($sql)) {
         return false;
     }
-    $sql = "CREATE TABLE IF NOT EXISTS `room_type`(`id` INT AUTO_INCREMENT,`room_type_name` VARCHAR(45) NOT NULL, PRIMARY KEY(`id`))";
-    if (!$mysqli->query($sql)) {
-        return false;
-    }
-    $sql = "CREATE TABLE IF NOT EXISTS `room`(`id` INT AUTO_INCREMENT,`room_no` VARCHAR(45) NOT NULL,`room_type_id` INT NOT NULL,`price` INT NOT NULL,`taken` BOOLEAN NOT NULL,PRIMARY KEY(`id`),FOREIGN KEY (`room_type_id`) REFERENCES `room_type`(`id`))";
+    $sql = "CREATE TABLE IF NOT EXISTS `room`(`id` INT AUTO_INCREMENT,`room_no` VARCHAR(45) NOT NULL,`room_type` INT NOT NULL,`bed` VARCHAR(45) NOT NULL ,`price` INT NOT NULL,`taken` BOOLEAN NOT NULL,PRIMARY KEY(`id`),FOREIGN KEY (`room_type`) REFERENCES `room_type`(`id`))";
     if (!$mysqli->query($sql)) {
         return false;
     }
   
-    $sql = "CREATE TABLE IF NOT EXISTS `room_bed` (`id` INT AUTO_INCREMENT,`room_id` INT NOT NULL,`bed_id` INT NOT NULL,`qty` INT NOT NULL ,PRIMARY KEY (`id`),FOREIGN KEY (`room_id`) REFERENCES `room`(`id`),FOREIGN KEY (`bed_id`) REFERENCES `bed`(`id`))";
+    // $sql = "CREATE TABLE IF NOT EXISTS `room_bed` (`id` INT AUTO_INCREMENT,`room_bed_name` VARCHAR(45) NOT NULL,`room_id` INT NOT NULL,`bed_id` INT NOT NULL,`bed_         qty` INT NOT NULL ,PRIMARY KEY (`id`),FOREIGN KEY (`room_id`) REFERENCES `room`(`id`),FOREIGN KEY (`bed_id`) REFERENCES `bed`(`id`))";
+    // if (!$mysqli->query($sql)) {
+    //     return false;
+    // }
+    $sql = "CREATE TABLE IF NOT EXISTS `customer` (`id` INT AUTO_INCREMENT,`customer_name` VARCHAR(45) NOT NULL,`nrc` VARCHAR(45) NOT NULL,`phone_no` INT NOT NULL ,`email` VARCHAR(100) NOT NULL,PRIMARY KEY (`id`))";
     if (!$mysqli->query($sql)) {
         return false;
     }
-    $sql = "CREATE TABLE IF NOT EXISTS `customer` (`id` INT AUTO_INCREMENT,`customer_name` VARCHAR(45) NOT NULL,`nrc` VARCHAR(45) NOT NULL,`phone_no` INT NOT NULL ,`email` VARCHAR(100) NOT NULL,PRIMARY KEY (`id`))";
+    $sql = "CREATE TABLE IF NOT EXISTS `staff` (`id` INT AUTO_INCREMENT,`staff_name` VARCHAR(45) NOT NULL,`age` INT NOT NULL,`phone_no` INT NOT NULL ,`email` VARCHAR(100) NOT NULL,`gender` INT NOT NULL,`role` VARCHAR(45) NOT NULL ,PRIMARY KEY (`id`))";
+    if (!$mysqli->query($sql)) {
+        return false;
+    }
+    $sql = "CREATE TABLE IF NOT EXISTS `duty` (`id` INT AUTO_INCREMENT,`duty_name` VARCHAR(45) NOT NULL,`start_time` DATETIME NOT NULL,`end_time` DATETIME NOT NULL,PRIMARY KEY (`id`))";
+    if (!$mysqli->query($sql)) {
+        return false;
+    }
+    $sql = "CREATE TABLE IF NOT EXISTS `duty_staff` (`id` INT AUTO_INCREMENT,`duty_id` INT NOT NULL,`staff_id` INT NOT NULL,`start_date` DATE NOT NULL,`end_date` DATE NOT NULL,PRIMARY KEY (`id`),FOREIGN KEY (`duty_id`) REFERENCES `duty`(`id`),FOREIGN KEY (`staff_id`) REFERENCES `staff`(`id`))";
     if (!$mysqli->query($sql)) {
         return false;
     }

@@ -1,5 +1,10 @@
 :root{
-    --bd-color:#d3e5fe;
+    --bd-color:rgb(241, 251, 254);
+    --nav-color : rgb(29, 96, 99);
+    --role-color:rgb(216, 250, 250);
+    --admin-color: rgb(227, 244, 244);
+    --room-color: rgb(212, 227, 225);
+    
 }
 
 *{
@@ -10,17 +15,11 @@
 body{
     background-color: var(--bd-color);
 }
+/* for login section */
 .login-container{
     width: 30%;
 }
-#valid{
-    height: 40px;
-    color: red;
-    padding-top: 5px;
-    padding-left: 10px;
-    font-size: 14px;
-    font-style: italic;
-}
+
 .custom-btn{
     color: #000;
     width: 100%;
@@ -29,3 +28,104 @@ body{
     border-radius: 5px;
     background-color: var(--bd-color);
 }
+
+
+/* for navbar section */
+#search-wapper{
+    padding: 20px; 
+  
+}
+.search-input{
+    width: 600px;
+    height: 40px;
+    /* border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px; */
+
+}
+.logo-area{
+    padding: 20px;
+}
+.search-icon{
+    height: 40px;
+    width: 40px;
+    border: none;
+/* border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px; */
+} 
+.nav{
+    width: 100vw;
+    height: 80px;
+    background-color: var(--nav-color);
+    justify-content: space-between;
+    box-shadow: 2px 0px 31px 7px rgba(0, 0, 0, 0.3);
+}
+
+.profile{
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin-right: 20px;
+    
+}
+.text-color{
+    color: #fff;
+}
+.profile-wapper{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-right: 10px;
+    margin-bottom: 10px;
+}
+
+
+/* admin index section */
+.role-container{
+    width: 80%;
+    padding: 20px 30px;
+    margin-top: 20px;
+    background-color: var(--admin-color);
+}
+.admin{
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: space-between;
+ 
+}
+.card-role{
+    color: var(--nav-color);
+    text-align: center;
+    text-decoration: none;
+}
+
+
+/*room page section */
+.room{
+
+    margin: 30px;
+    padding: 30px;
+    border-radius: 30px;
+    display: flex;
+    justify-content: space-around;
+    /* background-color: var(--room-color); */
+}
+.card-form{
+    /* height: 35px; */
+    border-radius: 15px;
+    background-color: var(--admin-color);
+    box-shadow: 1px 0px 15px 3px var(--room-color);
+}
+
+
+
+
+/* For validation section */
+#valid{
+    height: 35px;
+    color: red;
+    padding-top: 5px;
+    padding-left: 10px;
+    font-size: 14px;
+    font-style: italic;
+}
+
