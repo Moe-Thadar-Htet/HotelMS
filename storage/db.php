@@ -1,7 +1,7 @@
 <?php
 
 try{
-    $mysqli = new mysqli("127.0.0.10","root", "");
+    $mysqli = new mysqli("localhost","root", "");
     $sql = "CREATE DATABASE IF NOT EXISTS `HMS`";
     if($mysqli->query($sql)){
         if($mysqli-> select_db("HMS")){
@@ -16,7 +16,7 @@ try{
 }
 function create_tables($mysqli)
 {
-    $sql = "CREATE TABLE IF NOT EXISTS `user`(`id` INT AUTO_INCREMENT,`user_name` VARCHAR(45) NOT NULL ,`email` VARCHAR(100) UNIQUE NOT NULL ,`password` VARCHAR(100) NOT NULL,`role` INT NOT NULL,PRIMARY KEY(`id`)) ";
+    $sql = "CREATE TABLE IF NOT EXISTS `user`(`id` INT AUTO_INCREMENT,`user_name` VARCHAR(45) NOT NULL ,`email` VARCHAR(100) UNIQUE NOT NULL ,`password` VARCHAR(100) NOT NULL,`phone_number` VARCHAR(50) NOT NULL,`role` INT NOT NULL,PRIMARY KEY(`id`)) ";
     if(!$mysqli->query($sql)){
         return false;
     }

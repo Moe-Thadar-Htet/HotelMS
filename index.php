@@ -15,14 +15,14 @@ if (isset($_POST["logout"])){
 
 
 <?php 
-    $user = get_user($mysqli);
-    $user = $user->fetch_all();
-    $admin = array_filter($user,function($user){
-        return $user["4"] == 1;
+    $result = get_user($mysqli);
+    $users = $result->fetch_all();
+    $admin = array_filter($users,function($user){
+        return $user["5"] == 1;
     });
     if(!$admin){
         $admin_password = password_hash("admin", PASSWORD_BCRYPT);
-        add_user($mysqli,"admin","admin@gmail.com",$admin_password,1);
+        add_user($mysqli,"admin","admin@gmail.com",$admin_password,"0911111",1);
     }
 
     $email =  $email_err ="";
@@ -98,10 +98,14 @@ if (isset($_POST["logout"])){
                         <div id="valid"><?= $password_err?></div>
                     </div>
 
-                    <div class="form-check">
-                        <input type="checkbox" class="form-check-input" id="showpassword"/>
-                        <label for="showpassword" class="form-check-label">Show password</label>
+                    <div class="form-check d-flex align-items-center justify-content-between mt-3">
+                        <div>
+                            <input type="checkbox" class="form-check-input" id="showpassword"/>
+                            <label for="showpassword" class="form-check-label">Show password</label>
+                        </div>
+                        <a href="forgot_password.php" class="btn btn-link p-0 text-decoration-none">Forgot Password?</a>
                     </div>
+
                     <button class="custom-btn mt-3 ">Log In</button>
                 </form>
             </div>

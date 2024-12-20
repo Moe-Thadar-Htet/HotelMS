@@ -58,7 +58,7 @@
         <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
       </nav>
 
-      <a class="btn-getstarted" href="index.html#book-a-table">Book a Room</a>
+      <a class="btn-getstarted" href="#book-a-table">Book a Room</a>
 
     </div>
   </header>
@@ -117,11 +117,6 @@
             </a><!-- End tab nav item -->
 
           </li>
-          <li class="nav-item">
-            <a class="nav-link" data-bs-toggle="tab" data-bs-target="#menu-lunch">
-              <h4>Family</h4>
-            </a>
-          </li><!-- End tab nav item -->
         </ul>
 
         <div class="tab-content" data-aos="fade-up" data-aos-delay="200">
@@ -134,8 +129,8 @@
 
             <div class="row gy-5">
 
-              <div class="col-lg-6 menu-item">
-                <a href="../asset/img2/room/double_ superior.jpg" class="glightbox"><img src="../asset/img2/room/double_ superior.jpg" class="menu-img img-fluid" alt=""></a>
+              <div class="col-lg-4 menu-item">
+                <a href="../asset/img2/room/double_ superior.jpg" class="glightbox"><img src="../asset/img2/room/double_super.jpg" class="menu-img img-fluid" alt=""></a>
                 <h4>Superior (Double Bed)</h4>
                 <p class="ingredients">
                   Wifi, TV, Air Conditioning, Minibar, Amenities
@@ -145,14 +140,25 @@
                 </p>
               </div><!-- Menu Item -->
 
-              <div class="col-lg-6 menu-item">
-                <a href="../asset/img2/room/twin_superior.jpg" class="glightbox"><img src="../asset/img2/room/twin_superior.jpg" class="menu-img img-fluid" alt=""></a>
+              <div class="col-lg-4 menu-item">
+                <a href="../asset/img2/room/deluxe.webp" class="glightbox"><img src="../asset/img2/room/twin_super.jpg" class="menu-img img-fluid" alt=""></a>
                 <h4>Superior (Twin Bed)</h4>
                 <p class="ingredients">
                   Wifi, TV, Air Conditioning, Minibar, Amenities
                 </p>
                 <p class="price">
                   60000 MMK
+                </p>
+              </div><!-- Menu Item -->
+
+              <div class="col-lg-4 menu-item">
+                <a href="../asset/img2/room/sup_family.webp" class="glightbox"><img src="../asset/img2/room/sup_4.webp" class="menu-img img-fluid" alt=""></a>
+                <h4>Superior (Family)</h4>
+                <p class="ingredients">
+                  Wifi, TV, Air Conditioning, Minibar, Amenities
+                </p>
+                <p class="price">
+                  120000 MMK
                 </p>
               </div><!-- Menu Item -->
             </div>
@@ -166,8 +172,8 @@
 
             <div class="row gy-5">
 
-              <div class="col-lg-6 menu-item">
-                <a href="../asset/img2/room/deluxe_with_double.jpg" class="glightbox"><img src="../asset/img2/room/deluxe_with_double.jpg" class="menu-img img-fluid" alt=""></a>
+              <div class="col-lg-4 menu-item">
+                <a href="../asset/img2/room/deluxe_double_bed.jpg" class="glightbox"><img src="../asset/img2/room/deluxe_double_bed.jpg" class="menu-img img-fluid" alt=""></a>
                 <h4>Deluxe (Double Bed)</h4>
                 <p class="ingredients">
                 Wifi, TV, Air Conditioning, Minibar, Amenities, Bath-tub, City View
@@ -177,8 +183,8 @@
                 </p>
               </div><!-- Menu Item -->
 
-              <div class="col-lg-6 menu-item">
-                <a href="../asset/img2/room/deluxe_with_twin.jpg" class="glightbox"><img src="../asset/img2/room/deluxe_with_twin.jpg" class="menu-img img-fluid" alt=""></a>
+              <div class="col-lg-4 menu-item">
+                <a href="../asset/img2/room/deluxe_twin.webp" class="glightbox"><img src="../asset/img2/room/deluxe_twin.webp" class="menu-img img-fluid" alt=""></a>
                 <h4>Deluxe (Twin Bed)</h4>
                 <p class="ingredients">
                 Wifi, TV, Air Conditioning, Minibar, Amenities, Bath-tub, City View
@@ -187,31 +193,21 @@
                 100000 MMK
                 </p>
               </div><!-- Menu Item -->
-            </div>
-          </div><!-- End Breakfast Menu Content -->
 
-          <div class="tab-pane fade" id="menu-lunch">
-            <div class="tab-header text-center">
-              <h3>Family</h3>
-            </div>
-
-            <div class="row gy-5 justify-content-center"> <!-- Added justify-content-center -->
-              <div class="col-lg-6 menu-item text-center"> <!-- Added text-center -->
-                <a href="../asset/img2/room/family_single.webp" class="glightbox">
-                  <img src="../asset/img2/room/family_single.webp" class="menu-img img-fluid" alt="" style="margin: 0 auto;"> <!-- Added inline style -->
-                </a>
-                <h4>Family Room (Four Single Bed)</h4>
+              <div class="col-lg-4 menu-item">
+                <a href="../asset/img2/room/deluxe_family.webp" class="glightbox"><img src="../asset/img2/room/deluxe_family.webp" class="menu-img img-fluid" alt=""></a>
+                <h4>Deluxe (Family)</h4>
                 <p class="ingredients">
-                  Wifi, TV, Air Conditioning, Minibar, Amenities, Bath-tub, City View
+                Wifi, TV, Air Conditioning, Minibar, Amenities, Bath-tub, City View
                 </p>
                 <p class="price">
-                  180000 MMK
+                180000 MMK
                 </p>
               </div><!-- Menu Item -->
             </div>
-          </div><!-- End Dinner Menu Content -->
-        </div>
-      </div>
+          </div><!-- End Breakfast Menu Content -->
+            </div>
+          </div><!-- End Breakfast Menu Content -->
 
     </section><!-- /Menu Section -->
     <section id="about" class="about section">
@@ -235,7 +231,7 @@
           <div class="col-lg-5" data-aos="fade-up" data-aos-delay="250">
             <div class="content ps-0 ps-lg-5">
               <p class="fst-italic">
-              Welcome to Haven Hotel, where comfort meets elegance in the heart of Yangon. Our hotel offers exceptional amenities, personalized service, and unforgettable experiences tailored to every guest. With a rich history and prime location near [landmarks/attractions], we provide the perfect setting for relaxation or exploration. Discover why [Hotel Name] is your ideal choice for an unparalleled stay.
+              Welcome to Haven Hotel, where comfort meets elegance in the heart of Yangon. Our hotel offers exceptional amenities, personalized service, and unforgettable experiences tailored to every guest. With a rich history and prime location near luxury, we provide the perfect setting for relaxation or exploration. Discover why Haven Hotel is your ideal choice for an unparalleled stay.
               </p>
               <ul>
                 <li><i class="bi bi-check-circle-fill" style="color: green;"></i> <span>Prime location near Junction Square</span></li>
@@ -389,83 +385,82 @@
     </section><!-- /Testimonials Section -->
 
     
-
-    <!-- Book A Table Section -->
     <section id="book-a-table" class="book-a-table section">
 
-      <!-- Section Title -->
-      <div class="container section-title" data-aos="fade-up">
-        <h2>Book A Room</h2>
-        <p><span>Book Your</span> <span class="description-title">Stay With Us<br></span></p>
-      </div><!-- End Section Title -->
+<!-- Section Title -->
+<div class="container section-title" data-aos="fade-up">
+  <h2>Book A Room</h2>
+  <p><span>Book Your</span> <span class="description-title">Stay With Us<br></span></p>
+</div><!-- End Section Title -->
 
-      <div class="container">
+<div class="container d-flex justify-content-center align-items-center">
 
-        <div class="row g-0" data-aos="fade-up" data-aos-delay="100">
-
-          <div class="col-lg-4 reservation-img" style="background-image: url(asset/img/reservation.jpg);"></div>
-
-          <div class="col-lg-8 d-flex align-items-center reservation-form-bg" data-aos="fade-up" data-aos-delay="200">
-            <form action="forms/book-a-room.php" method="post" role="form" class="php-email-form">
-              <div class="row gy-4">
-                <!-- Name Field -->
-                <div class="col-lg-4 col-md-6">Full Name
-                  <input type="text" name="name" class="form-control" id="name" placeholder="Your Name" required="">
-                </div>
-                
-                <!-- Email Field -->
-                <div class="col-lg-4 col-md-6">Email Address
-                  <input type="email" class="form-control" name="email" id="email" placeholder="Your Email" required="">
-                </div>
-                
-                <!-- Phone Field -->
-                <div class="col-lg-4 col-md-6">Phone Number
-                  <input type="text" class="form-control" name="phone" id="phone" placeholder="Your Phone" required="">
-                </div>
-                
-                <!-- Check-in Date Field -->
-                <div class="col-lg-4 col-md-6">Check-in Date
-                  <input type="date" name="checkin" class="form-control" id="checkin" placeholder="Check-in Date" required="">
-                </div>
-                
-                <!-- Check-out Date Field -->
-                <div class="col-lg-4 col-md-6">Check-out Date
-                  <input type="date" name="checkout" class="form-control" id="checkout" placeholder="Check-out Date" required="">
-                </div>
-                
-                <!-- Number of Guests Field -->
-                <div class="col-lg-4 col-md-6">Choose Your Room
-                  <select name="roomtype" id="roomtype" class="form-control" require>
-                    <option value="roomtype" disabled selected>Choose here</option>
-                    <option value="superior1">Superior (Double Bed)</option>
-                    <option value="superior2">Superior (Twin Bed)</option>
-                    <option value="deluxe1">Deluxe (Double Bed)</option>
-                    <option value="deluxe2">Deluxe (Twin Bed)</option>
-                    <option value="family">Family (Four Single Bed)</option>
-                  </select>
-              </div>
-              </div>
-
-              <!-- Additional Notes Field -->
-              <div class="form-group mt-3">
-                <textarea class="form-control" name="message" rows="5" placeholder="Additional Notes (Optional)"></textarea>
-              </div>
-
-              <!-- Submit Button -->
-              <div class="text-center mt-3">
-                <div class="loading">Loading</div>
-                <div class="error-message"></div>
-                <div class="sent-message">Your booking request was sent. We will call back or send an Email to confirm your reservation. Thank you!</div>
-                <button type="submit">Book a Room</button>
-              </div>
-            </form>
-          </div><!-- End Booking Form -->
-
+  <div class="row g-0" data-aos="fade-up" data-aos-delay="100">
+    <div class="col-lg-8 d-flex align-items-center reservation-form-bg" style="width: 100%;" data-aos="fade-up" data-aos-delay="200">
+      <form action="forms/book-a-room.php" method="post" role="form" class="php-email-form">
+        <div class="row gy-4">
+          <!-- Name Field -->
+          <div class="col-lg-4 col-md-6">Full Name
+            <input type="text" name="name" class="form-control" id="name" placeholder="Your Name" required="">
+          </div>
+          
+          <!-- Email Field -->
+          <div class="col-lg-4 col-md-6">Email Address
+            <input type="email" class="form-control" name="email" id="email" placeholder="Your Email" required="">
+          </div>
+          
+          <!-- Phone Field -->
+          <div class="col-lg-4 col-md-6">Phone Number
+            <input type="text" class="form-control" name="phone" id="phone" placeholder="Your Phone" required="">
+          </div>
+          
+          <!-- Check-in Date Field -->
+          <div class="col-lg-4 col-md-6">Check-in Date
+            <input type="date" name="checkin" class="form-control" id="checkin" required="">
+          </div>
+          
+          <!-- Check-out Date Field -->
+          <div class="col-lg-4 col-md-6">Check-out Date
+            <input type="date" name="checkout" class="form-control" id="checkout" required="">
+          </div>
+          
+          <!-- Choose Room Field -->
+          <div class="col-lg-4 col-md-6">Choose Your Room
+            <select name="roomtype" id="roomtype" class="form-control" required>
+              <option value="roomtype" disabled selected>Choose here</option>
+              <option value="superior1">Superior (Double Bed)</option>
+              <option value="superior2">Superior (Twin Bed)</option>
+              <option value="deluxe1">Superior (Family)</option>
+              <option value="deluxe2">Deluxe (Double Bed)</option>
+              <option value="family1">Deluxe (Twin Bed)</option>
+              <option value="family2">Deluxe (Family)</option>
+            </select>
+          </div>
         </div>
 
-      </div>
+        <!-- Additional Notes Field -->
+        <div class="form-group mt-3">
+          <textarea class="form-control" name="message" rows="5" placeholder="Additional Notes (Optional)"></textarea>
+        </div>
 
-    </section><!-- /Book A Table Section -->
+        <!-- Submit Button -->
+        <div class="text-center mt-3">
+          <div class="loading">Loading</div>
+          <div class="error-message"></div>
+          <div class="sent-message">Your booking request was sent. We will call back or send an Email to confirm your reservation. Thank you!</div>
+          <button type="submit">Book a Room</button>
+        </div>
+      </form>
+    </div><!-- End Booking Form -->
+
+  </div>
+
+</div>
+
+</section>
+
+<!-- JavaScript to Set Minimum Date -->
+
 
     <!-- Contact Section -->
     <section id="contact" class="contact section">
@@ -599,6 +594,23 @@
 
   <!-- Main JS File -->
   <script src="../asset/js2/main.js"></script>
+
+  <script>
+      const today = new Date().toISOString().split('T')[0];
+
+      document.getElementById('checkin').setAttribute('min', today);
+      document.getElementById('checkout').setAttribute('min', today);
+
+      const checkinField = document.getElementById('checkin');
+      const checkoutField = document.getElementById('checkout');
+
+      checkinField.addEventListener('change', function() {
+        const checkinDate = checkinField.value;
+        checkoutField.setAttribute('min', checkinDate);
+      });
+</script>
+
+
 
 </body>
 
