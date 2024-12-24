@@ -33,11 +33,11 @@ if ($code != $user['role']) {
 
 
 
-// if(isset($_POST["logout"])){
-//     setcookie("user", "", -1, "/");
-//     header("location:../index.php");
+if(isset($_POST["logout"])){
+    setcookie("user", "", -1, "/");
+    header("location:../index.php");
    
-// }
+}
 
 
 ?>

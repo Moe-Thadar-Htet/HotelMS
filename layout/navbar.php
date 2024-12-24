@@ -1,58 +1,50 @@
-<!-- Admin_Navigation_Bar -->
-<div id="nav" class="navbar navbar-dark navbar-expand fixed-top" style="background-color: #1A1A1A;">
-        <div class="container">
-            <a href="index.html" class="navbar-brand me-5" style="color: #F5F5F5;">
-                Reception
-            </a>
 
-            <ul class="navbar-nav">
-            <li class="nav-item">
-                    <a href="http://localhost/HotelMS/reception/index.php" class="nav-link" >
-                        <span class="nav-text btn btn-outline-info ms-auto" id="all-room">All Rooms <i class="fa fa-bed"></i></span>
-                    </a>
-                    <li>
-                <li class="nav-item">
-                    <a href="http://localhost/HotelMS/available.php" class="nav-link active">
-                        <span class="nav-text btn btn-outline-success ms-auto" id="available">Available <i class="fa fa-broom"></i></span>
-                    </a>
-                    <li>
-                        <li class="nav-item">
-                            <a href="http://localhost/HotelMS/soldout.php" class="nav-link active">
-                                <span class="nav-text btn btn-outline-danger ms-auto" id="sold-out">Sold Out<i class="fa fa-exclamation-triangle" style="padding-left: 5px;"></i></span>
-                            </a>
-                        </li>
-                    </li>
-                </li>
-                <li class="nav-item">
-                    <a href="http://localhost/HotelMS/daily_income.php" class="nav-link active">
-                        <span class="nav-text btn btn-outline-primary ms-auto" id="daily-income">Daily Income<i class="fa fa-dollar-sign" style="padding-left: 5px;"></i></span>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a href="#" class="nav-link active">
-                        <span class="nav-text btn btn-outline-warning ms-auto" id="booked">Booked<i class="fas fa-calendar-check" style="padding-left: 5px;"></i>
-                        </span>
-                    </a>
-                    <li>
-                <div class="dropdown">
-                    <button class="btn btn-secondary dropdown-toggle" type="button" id="profileDropdown" data-bs-toggle="dropdown" aria-expanded="false" style="margin-top: 8px;">
-                    </button>
-                    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="profileDropdown">
-                        <li>
-                            <a class="dropdown-item d-flex justify-content-between align-items-center" href="#">
-                                Profile <i class="fa fa-user"></i>
-                            </a>
-                        </li>
-                        <li>
-                            <a class="dropdown-item d-flex justify-content-between align-items-center" href="#">
-                                Logout <i class="fa fa-sign-out-alt"></i>
-                            </a>
-                        </li>
-                    </ul>
-                </div>
-
-            </ul>
-            
+<nav class="nav">
+    <div class="logo ms-0">
+        <div class="logo-area">
+            <a href="#"> <img class="profile" src="../asset/css/img/admin.png2024-Dec-Sun-06-0-st"></a>
         </div>
     </div>
+    <div id="search-wapper" class="mx-auto">
+        <form method="post">
+            <div class="search-wapper d-flex">
+                <div class="search ">
+                    <input class="search-input form-control" type="text" name="search" placeholder="Search" />    
+                </div>
+                <div>
+                    <button class="search-icon form-control">
+                        <i class="fa fa-search"></i>
+                    </button>
+                </div>  
+            </div>
+        </form>              
+    </div>
+
+    <div class="profile-wapper text-color-light">
+        <div>
+            <span class="text-color">username</span>
+        </div>
+        <div class="dropdown">
+            <div type="button" data-bs-toggle="dropdown">
+                <img class="profile" src="../asset/css/img/admin.png2024-Dec-Sun-06-0-st">
+            </div>
+            <form method="post">
+                <ul class="dropdown-menu">
+                    <li><a class="dropdown-item" href="#">Profile</a></li>
+                    <li><button name="logout" class="dropdown-item">Logout</button></li>
+                </ul>
+            </form>
+        </div> 
+    </div>
+</nav>
+
    
+
+   
+
+ 
+ 
+
+
+
+
