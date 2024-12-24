@@ -4,6 +4,8 @@
 <?php require_once("../storage/room_type_crud.php")?>
 <?php require_once("../storage/room_crud.php")?>
 <?php require_once("../storage/customer_crud.php")?>
+<?php require_once("../storage/room_booking_crud.php")?>
+
 
 <!DOCTYPE html>
 <html lang="en">

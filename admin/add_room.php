@@ -3,7 +3,9 @@
 <?php
 $room_no = $room_no_err ="";
 $room_type = $room_type_err = "";
-$bed = $bed_err = "";
+$single_bed = $single_bed_err = "";
+$double_bed = $double_bed_err = "";
+$twin_bed = $twin_bed_err = "";
 $price = $price_err ="";
 $taken = $taken_err = "";
 $invalid = true;
@@ -14,20 +16,22 @@ $validation_message="";
 
 if(isset($_GET["editId"])){
     $editId = $_GET["editId"];
-
     $edit_room          = get_room_id($mysqli,$editId);
     $room_no            = $edit_room['room_no'];    
     $selected_room_type = $edit_room['room_type'];  
-    $bed                = $edit_room['bed'];    
-    $price              = $edit_room['price'];   
-    // var_dump($room_type); 
+    $single_bed         = $edit_room['single_bed']; 
+    $double_bed         = $edit_room['double_bed']; 
+    $twin_bed           = $edit_room['twin_bed'];    
+    $price              = $edit_room['price'];  
 }
 
 
 if(isset($_POST["room_no"])){
     $room_no   = $_POST["room_no"];
     $room_type = $_POST["room_type"];
-    $bed       = $_POST["bed"];
+    $single_bed       = $_POST["single_bed"];
+    $double_bed       = $_POST["double_bed"];
+    $twin_bed       = $_POST["twin_bed"];
     $price     = $_POST["price"];
 
      if($room_no ===  ""){
@@ -38,8 +42,16 @@ if(isset($_POST["room_no"])){
         $room_type_err =" Room Type can't be blanked!";
         $invalid       = false;
      }
-     if($bed ===  ""){
-        $bed_err =" Bed can't be blanked!";
+     if($single_bed ===  ""){
+        $single_bed_err ="Single Bed can't be blanked!";
+        $invalid = false;
+     }
+     if($double_bed ===  ""){
+        $double_bed_err ="Double Bed can't be blanked!";
+        $invalid = false;
+     }
+     if($twin_bed ===  ""){
+        $twin_bed_err ="Twin Bed can't be blanked!";
         $invalid = false;
      }
      if($price ===  ""){
@@ -95,17 +107,32 @@ if(isset($_POST["room_no"])){
                         ?>
                         <?php while($room_type = $room_types->fetch_assoc()){  ?>
                         <option value="<?= $room_type["id"] ?>"
-                        <?php if($room_type["id"] == $selected_room_type){
-                            echo "selected";
-                            }?>><?= $room_type["room_type_name"]?></option>
+
+                        <?php 
+                        if(isset($_GET["editId"])){
+                            if($room_type["id"] == $selected_room_type){
+                                echo "selected";
+                                }
+                        }    
+                        ?>><?= $room_type["room_type_name"]?></option>
                         <?php } ?> 
                     </select>                                  
                     <div class="text-danger" id="valid"  style="font-size:12px;"><?= $room_type_err?></div>
                 </div>
                 <div class="form-group"> 
-                    <label for="bed" class="form-label">Bed Name</label>
-                    <input type="text" name="bed" class="form-control" id="bed" value="<?=$bed ?>">
-                    <div class="text-danger" id="valid" style="font-size:12px;"><?= $bed_err ?></div>
+                    <label for="single_bed" class="form-label">Single Bed</label>
+                    <input type="text" name="single_bed" class="form-control" id="single_bed" value="<?=$single_bed?>">
+                    <div class="text-danger" id="valid" style="font-size:12px;"><?= $single_bed_err ?></div>
+                </div>
+                <div class="form-group"> 
+                    <label for="double_bed" class="form-label">Double Bed</label>
+                    <input type="text" name="double_bed" class="form-control" id="double_bed" value="<?=$double_bed ?>">
+                    <div class="text-danger" id="valid" style="font-size:12px;"><?= $double_bed_err ?></div>
+                </div>
+                <div class="form-group"> 
+                    <label for="twin_bed" class="form-label">Twin Bed</label>
+                    <input type="text" name="twin_bed" class="form-control" id="twin_bed" value="<?=$twin_bed?>">
+                    <div class="text-danger" id="valid" style="font-size:12px;"><?= $twin_bed_err ?></div>
                 </div>
                 <div class="form-group">
                     <label for="price" class="form-label">Price</label>
@@ -145,7 +172,9 @@ if(isset($_POST["room_no"])){
                                 <th>Id</th>
                                 <th>Room No</th>
                                 <th>Room Type Id</th>
-                                <th>Bed Name</th>
+                                <th>Single Bed</th>
+                                <th>Double Bed</th>
+                                <th>Twin Bed</th>
                                 <th>Price</th>
                                 <th>Action</th>
                             
@@ -159,7 +188,9 @@ if(isset($_POST["room_no"])){
                                 <td><?=$i ?></td>
                                 <td><?=$room["room_no"] ?></td>
                                 <td><?=$room["room_type"] ?></td>
-                                <td><?=$room["bed"] ?></td>
+                                <td><?=$room["single_bed"] ?></td>
+                                <td><?=$room["double_bed"] ?></td>
+                                <td><?=$room["twin_bed"] ?></td>
                                 <td><?=$room["price"] ?></td>
                                 <td>
                                     <a href="?editId=<?=$room['id']?>" class="btn btn-sm btn-success"><i class="fa fa-pen"></i></a>

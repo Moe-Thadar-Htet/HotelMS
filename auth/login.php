@@ -7,24 +7,22 @@ if(!$user){
 }else{
 
     $url = $_SERVER["REQUEST_URI"];
-   $url_arr = explode("/", $url);
-   $code = 0;
-   if ($url_arr[count( $url_arr) - 2] !== "hms") {
-    $role_name =  $url_arr[count( $url_arr) - 2];
-    // var_dump($role_name);
-    switch ($role_name) {
-        case 'admin':
-            $code = 1;
-            break;
-        case 'reception':
-            $code = 2;
-            break;
-        case 'cleaning':
-            $code = 3;
-            break;
-   }
-   
-
+    $url_arr = explode("/", $url);
+    $code = 0;
+    if ($url_arr[count( $url_arr) - 2] !== "hms") {
+        $role_name =  $url_arr[count( $url_arr) - 2];
+        // var_dump($role_name);
+        switch ($role_name) {
+            case 'admin':
+                $code = 1;
+                break;
+            case 'reception':
+                $code = 2;
+                break;
+            case 'cleaning':
+                $code = 3;
+                break;
+    }
 }
 if ($code != $user['role']) {
     header("location:../401.html");
@@ -35,9 +33,5 @@ if ($code != $user['role']) {
 
 if(isset($_POST["logout"])){
     setcookie("user", "", -1, "/");
-    header("location:../index.php");
-   
+    header("location:../index.php"); 
 }
-
-
-?>

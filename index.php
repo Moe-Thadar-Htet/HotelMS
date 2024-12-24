@@ -7,10 +7,6 @@
 if(isset($_COOKIE['user'])){
     header(header: "location:./home.php");
 }
-
-if (isset($_POST["logout"])){
-    setcookie("user", "", -1, "/");
-}
 ?>
 
 
@@ -46,7 +42,7 @@ if (isset($_POST["logout"])){
                 $email_err = "User Email does not exist";
             }else{
             if(password_verify($password,$user['password'])){
-                setcookie('user', json_encode($user), time()+1000*60*60*24*2,'');
+                setcookie('user', json_encode($user), time()+1000*60*60*24*2,'/');
                 header('location:./home.php');
             }else{
                 $password_err = "User Password does not match!";
@@ -54,7 +50,7 @@ if (isset($_POST["logout"])){
 
             }
         }
-
+ 
     }
 }
 
