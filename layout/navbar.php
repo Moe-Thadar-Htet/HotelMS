@@ -7,33 +7,33 @@
 
             <ul class="navbar-nav">
             <li class="nav-item">
-                    <a href="#" class="nav-link" >
+                    <a href="http://localhost/HotelMS/reception/index.php" class="nav-link" >
                         <span class="nav-text btn btn-outline-info ms-auto" id="all-room">All Rooms <i class="fa fa-bed"></i></span>
                     </a>
                     <li>
                 <li class="nav-item">
-                    <a href="#" class="nav-link active">
+                    <a href="http://localhost/HotelMS/available.php" class="nav-link active">
                         <span class="nav-text btn btn-outline-success ms-auto" id="available">Available <i class="fa fa-broom"></i></span>
                     </a>
                     <li>
                         <li class="nav-item">
-                            <a href="#" class="nav-link active">
+                            <a href="http://localhost/HotelMS/soldout.php" class="nav-link active">
                                 <span class="nav-text btn btn-outline-danger ms-auto" id="sold-out">Sold Out<i class="fa fa-exclamation-triangle" style="padding-left: 5px;"></i></span>
                             </a>
                         </li>
                     </li>
                 </li>
                 <li class="nav-item">
-                    <a href="#" class="nav-link active">
+                    <a href="http://localhost/HotelMS/daily_income.php" class="nav-link active">
                         <span class="nav-text btn btn-outline-primary ms-auto" id="daily-income">Daily Income<i class="fa fa-dollar-sign" style="padding-left: 5px;"></i></span>
                     </a>
                 </li>
-                <!-- <li class="nav-item">
+                <li class="nav-item">
                     <a href="#" class="nav-link active">
-                        <span class="nav-text btn btn-outline-warning ms-auto" id="add-room">Add Room<i class="fa fa-plus" style="padding-left: 5px;"></i>
+                        <span class="nav-text btn btn-outline-warning ms-auto" id="booked">Booked<i class="fas fa-calendar-check" style="padding-left: 5px;"></i>
                         </span>
                     </a>
-                    <li> -->
+                    <li>
                 <div class="dropdown">
                     <button class="btn btn-secondary dropdown-toggle" type="button" id="profileDropdown" data-bs-toggle="dropdown" aria-expanded="false" style="margin-top: 8px;">
                     </button>
