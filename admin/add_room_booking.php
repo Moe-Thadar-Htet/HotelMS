@@ -1,10 +1,9 @@
 <?php require_once("../layout/header.php")?>
 <?php require_once("../layout/navbar.php")?>
-
 <?php
-$room_id = $room_id_err = "";
-$checkin_id = $checkin_id_err = "";
-$checkout_id  = $checkout_id_err  = "";
+// $room_id = $room_id_err = "";
+$booking_id = $booking_id_err = "";
+$extra_bed  = $extra_bed_err  = "";
 $status     = $status_err     = "";
 $invalid    = true;
 
@@ -36,20 +35,19 @@ if(isset($_POST["booking_id"])){
 
     if($invalid){
         if(isset($_GET["editId"])){
-            $update = update_booking($mysqli,$editId,$booking_id,$extra_bed,$status);
+            $update = update_room_booking($mysqli,$editId,$booking_id,$extra_bed,$status);
             if($update){
-                echo "<script>location.replace('./add_booking.php')</script>";
+                echo "<script>location.replace('./add_room_booking.php')</script>";
             }
         }else{
-            $update = add_booking($mysqli,$booking_id,$extra_bed,0);
+            $update = add_room_booking($mysqli,$booking_id,$extra_bed,0);
             if($update){
-                echo "<script>location.replace('./add_booking.php')</script>";
+                echo "<script>location.replace('./add_room_booking.php')</script>";
             }
 
         }
     }
-}
-?>
+}?>
 
 <div class="room">
     <div class="card-form col-4 mt-3 p-3">
@@ -68,7 +66,6 @@ if(isset($_POST["booking_id"])){
                     <input type="text" name="booking_id" class="form-control" id="booking_id" value="<?=$booking_id ?>">
                     <div class="text-danger" id="valid"><?= $booking_id_err ?></div>
                 </div>
-               
                 <div class="form-group"> 
                     <label for="extra_bed" class="form-label">Extra Bed</label>
                     <input type="number" name="extra_bed" class="form-control" id="extra_bed" value="<?=$extra ?>"/>
@@ -131,17 +128,5 @@ if(isset($_POST["booking_id"])){
         </div>
     </div>
 </div>
-
-
-
-
-
-
-  <!-- <div class="form-group"> 
-                    <label for="room_id" class="form-label">Room ID</label>
-                    <input type="text" name="room_id" class="form-control" id="room_id" value="<?=$room_id ?>">
-                    <div class="text-danger" id="valid"><?= $room_id_err ?></div>
-                </div> -->
-
 
 <?php require_once("../layout/footer.php")?>

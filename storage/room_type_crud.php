@@ -23,9 +23,9 @@ function delete_room_type($mysqli,$id)
     return $mysqli->query($sql);
 }
 
-function update_room_type($mysqli,$id,$room_type_name)
+function update_room_type($mysqli,$id,$room_type_name,$description)
 {
-    $sql = "UPDATE `room_type` SET `room_type_name` = '$room_type_name' WHERE `id` = $id";
+    $sql = "UPDATE `room_type` SET `room_type_name` = '$room_type_name',`description`='$description' WHERE `id` = $id";
     return $mysqli->query($sql);
 }
 

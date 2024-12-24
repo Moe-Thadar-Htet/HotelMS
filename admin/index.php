@@ -26,16 +26,17 @@
         <div class="card col-2">
             <div class="card-body">
                 <i class="fa-solid fa-hotel"></i>
-                <a href="./add_bed.php" class="card-title card-role">Bed</a>
+                <a href="./add_room_booking.php" class="card-title card-role">Room Booking Time</a>
             </div>
 
         </div>
         <div class="card col-2">
             <div class="card-body">
                 <i class="fa-solid fa-hotel"></i>
-                <a href="./add_room_bed.php" class="card-title card-role">Room Bed Detail</a>
+                <a href="./add_booking.php" class="card-title card-role">Booking</a>
             </div>
-        </div>  
+        </div>
+     
     </div>
     <div class="admin">
         <div class="card col-2">
@@ -69,21 +70,15 @@
         <div class="card col-2">
             <div class="card-body">
                 <i class="fa-solid fa-hotel"></i>
-                <a href="./add_booking.php" class="card-title card-role">Booking</a>
-            </div>
-        </div>
-    </div>
-    <div class="admin">
-        <div class="card col-2">
-            <div class="card-body">
-                <i class="fa-solid fa-hotel"></i>
                 <a href="./reception/index.php" class="card-title card-role">reception view</a>
             </div>
         </div>
     </div>
     
-
+      
 </div>
+  
+      
 
 <div class="role-container mx-auto mt-5">
 

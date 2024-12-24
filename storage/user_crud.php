@@ -30,9 +30,9 @@ function delete_user($mysqli,$id)
     return $mysqli->query($sql);
 }
 
-function update_user($mysqli,$id,$user_name,$email,$password,$role)
+function update_user($mysqli,$id,$user_name,$email,$password,$phone_number,$role)
 {
-    $sql = "UPDATE `user` SET `user_name` = '$user_name', `email` = '$email', `password` = '$password', `role` = '$role' WHERE `id` = $id";
+    $sql = "UPDATE `user` SET `user_name` = '$user_name', `email` = '$email', `password` = '$password',`phone_number`= '$phone_number', `role` = '$role' WHERE `id` = $id";
     return $mysqli->query($sql);
 }
 
