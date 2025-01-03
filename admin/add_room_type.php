@@ -83,7 +83,10 @@ if(isset($_POST["room_type_name"])){
     ?>
 
     <div class="card-form col-7 mt-3 p-3">
-        <h2 class="text-center" style="color: var(--nav-color);">Room Type List</h2>
+        <div class="d-flex p-3">
+            <h2 class="" style="color: var(--nav-color);">Room Type Detail List</h2>
+            <a href="./index.php" class="btn btn-success btn_sm ms-auto">Home</a>
+        </div> 
         <div class="card-body p-3">
            <div class="card">
                 <div class="card-body">

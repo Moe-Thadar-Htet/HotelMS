@@ -1,7 +1,7 @@
 <?php 
-function  add_room($mysqli,$room_no,$room_type,$bed,$price,$taken)
+function  add_room($mysqli,$room_no,$room_type,$single_bed,$double_bed,$twin_bed,$price,$taken)
 {
-    $sql = "INSERT INTO `room` (`room_no`,`room_type`,`bed`,`price`,`taken`) VALUE ('$room_no','$room_type','$bed','$price',0)";
+    $sql = "INSERT INTO `room` (`room_no`,`room_type`,`single_bed`,`double_bed`,`twin_bed`,`price`,`taken`) VALUE ('$room_no','$room_type','$single_bed','$double_bed','$twin_bed','$price','$taken')";
     return $mysqli->query($sql);
 }
 function get_room($mysqli)
@@ -30,9 +30,9 @@ function delete_room($mysqli,$id)
     return $mysqli->query($sql);
 }
 
-function update_room($mysqli,$id,$room_no,$room_type,$bed,$price,$taken)
+function update_room($mysqli,$id,$room_no,$room_type,$single_bed,$double_bed,$twin_bed,$price,$taken)
 {
-    $sql = "UPDATE `room` SET `room_no` = '$room_no', `room_type` = '$room_type',`bed`='$bed', `price` = '$price', `taken` = '$taken' WHERE `id` = $id";
+    $sql = "UPDATE `room` SET `room_no` = '$room_no', `room_type` = '$room_type',`single_bed`='$single_bed',`double_bed`='$double_bed', `twin_bed`='$twin_bed', `price` = '$price', `taken` = '$taken' WHERE `id` = $id";
     return $mysqli->query($sql);
 }
 

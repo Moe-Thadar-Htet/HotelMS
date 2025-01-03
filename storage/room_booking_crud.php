@@ -1,8 +1,8 @@
 <?php
 
-function add_room_booking($mysqli,$booking_id,$extra_bed,$status)
+function add_room_booking($mysqli,$booking_id,$checkout_time,$extra_bed,$status)
 {
-    $sql = "INSERT INTO `room_booking` (`booking_id`,`extra_bed`,`status`) VALUE ('$booking_id','$extra_bed','$status')";
+    $sql = "INSERT INTO `room_booking` (`booking_id`,`checkout_time`,`extra_bed`,`status`) VALUE ('$booking_id','$checkout_time','$extra_bed','$status')";
     return $mysqli->query($sql);
 }
 function get_room_booking($mysqli)
@@ -24,9 +24,9 @@ function delete_room_booking($mysqli,$id)
     return $mysqli->query($sql);
 }
 
-function update_room_booking($mysqli,$id,$booking_id,$extra_bed,$status)
+function update_room_booking($mysqli,$id,$booking_id,$checkout_time,$extra_bed,$status)
 {
-    $sql = "UPDATE `room_booking` SET`booking_id`='$booking_id',`extra_bed`='$extra_bed',`status`='$status' WHERE `id`='$id'";
+    $sql = "UPDATE `room_booking` SET`booking_id`='$booking_id',`checkout_time`='$checkout_time',`extra_bed`='$extra_bed',`status`='$status' WHERE `id`='$id'";
     return $mysqli->query($sql);
 }
 

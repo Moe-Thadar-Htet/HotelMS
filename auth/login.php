@@ -25,7 +25,9 @@ if(!$user){
     }
 }
 if ($code != $user['role']) {
-    header("location:../401.html");
+    if($user['role'] != 1){
+        header("location:../401.html");
+    }
 }
 }
 

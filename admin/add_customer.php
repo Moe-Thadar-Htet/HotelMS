@@ -4,17 +4,22 @@
 
 $customer_name= $customer_name_err ="";
 $nrc = $nrc_err = "";
-$phone_no= $phone_no_err ="";
+$phone_no= $phone_no_err="";
 $email= $email_err = "";
 $invalid= true;
 
 if(isset($_GET["editId"])){
     $editId = $_GET["editId"];
-    $customer = get_room_id($mysqli,$editId);
-    $customer_name   = $_GET["customer_name"];
-    $nrc    = $_GET["nrc"];
-    $phone_no = $_GET["phone_no"];
-    $email    = $_GET["email"];
+    $customer = get_customer_id($mysqli,$editId);
+    $customer_name   =$customer["customer_name"];
+    $nrc    = $customer["nrc"];
+    $phone_no =$customer["phone_no"];
+    $email    = $customer["email"];
+}
+
+if(isset($_GET["deleteId"])){
+    if(delete_customer($mysqli,$_GET["deleteId"]));
+    echo"<script>Location.replace('./add_customer.php')</script>";
 
 }
 
@@ -44,7 +49,7 @@ if(isset($_POST["customer_name"])){
 
      if($invalid){
         if(isset($_GET["editId"])){
-            $update =update_customer($mysqli,$$editId,$customer_name,$nrc,$phone_no,$email);
+            $update =update_customer($mysqli,$editId,$customer_name,$nrc,$phone_no,$email);
             if($update){
                 echo "<script>location.replace('./add_customer.php')</script>";
             }
@@ -106,7 +111,10 @@ if(isset($_POST["customer_name"])){
     </div>
 
     <div class="card-form col-7 mt-3 p-3">
-        <h2 class="text-center" style="color: var(--nav-color);">Customer List</h2>
+        <div class="d-flex p-3">
+            <h2 class="" style="color: var(--nav-color);">Customer List</h2>
+            <a href="./index.php" class="btn btn-success btn_sm ms-auto">Home</a>
+        </div> 
         <div class="card-body p-3">
            <div class="card">
                 <div class="card-body">
@@ -130,10 +138,10 @@ if(isset($_POST["customer_name"])){
                                 <td><?= $i?></td>
                                 <td><?= $customer["customer_name"]?></td>
                                 <td><?= $customer["nrc"]?></td>
-                                <td><?= $customer["phone"]?></td>
+                                <td><?= $customer["phone_no"]?></td>
                                 <td><?= $customer["email"]?></td>
                                 <td>
-                                    <a href="?editId=<?=$customer['id']?>" class="btn btn-sm btn-success"><i class="fa fa-pen"></i></a>
+                                    <a href="?editId=<?= $customer['id']?>" class="btn btn-sm btn-success"><i class="fa fa-pen"></i></a>
                                     <button class="btn btn-sm btn-danger  deleteSelect" data-value="<?=$customer['id']?>" data-bs-toggle="modal" data-bs-target="#deleteModal"><i class="fa fa-trash"></i></button>
                                 </td>
                             </tr>

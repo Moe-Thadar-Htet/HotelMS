@@ -5,6 +5,10 @@
 <?php require_once("../storage/room_crud.php")?>
 <?php require_once("../storage/customer_crud.php")?>
 <?php require_once("../storage/room_booking_crud.php")?>
+<?php require_once("../storage/booking_crud.php")?>
+<?php require_once("../storage/staff_crud.php")?>
+<?php require_once("../storage/duty_crud.php")?>
+<?php require_once("../storage/duty_staff_crud.php")?>
 
 
 <!DOCTYPE html>

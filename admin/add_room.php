@@ -29,27 +29,23 @@ if(isset($_GET["editId"])){
 if(isset($_POST["room_no"])){
     $room_no   = $_POST["room_no"];
     $room_type = $_POST["room_type"];
-    $single_bed       = $_POST["single_bed"];
-    $double_bed       = $_POST["double_bed"];
-    $twin_bed       = $_POST["twin_bed"];
-    $price     = $_POST["price"];
+    $single_bed = $_POST["single_bed"];
+    $double_bed = $_POST["double_bed"];
+    $twin_bed   = $_POST["twin_bed"];
+    $price      = $_POST["price"];
 
      if($room_no ===  ""){
         $room_no_err =" Room Number can't be blanked!";
         $invalid     = false;
-     }
-     if($room_type ===  "" || $selected_room_type === ""){
-        $room_type_err =" Room Type can't be blanked!";
-        $invalid       = false;
-     }
+    }
      if($single_bed ===  ""){
         $single_bed_err ="Single Bed can't be blanked!";
         $invalid = false;
-     }
+        }
      if($double_bed ===  ""){
         $double_bed_err ="Double Bed can't be blanked!";
         $invalid = false;
-     }
+    }
      if($twin_bed ===  ""){
         $twin_bed_err ="Twin Bed can't be blanked!";
         $invalid = false;
@@ -62,12 +58,12 @@ if(isset($_POST["room_no"])){
 
      if($invalid){
         if(isset($_GET["editId"])){
-            $update = update_room($mysqli,$editId,$room_no,$room_type,$bed,$price,0);
+            $update = update_room($mysqli,$editId,$room_no,$room_type,$single_bed,$double_bed,$twin_bed,$price,$taken);
             if($update){
                 echo "<script>location.replace('./add_room.php')</script>";
             }
         }else{
-            if(add_room($mysqli,$room_no,$room_type,$bed,$price,0)){
+            if(add_room($mysqli,$room_no,$room_type,$single_bed,$double_bed,$twin_bed,$price,0)){
                 if($room_type == ""){
                     echo "<script>location.replace('./add_room.php')</script>";
                 }else{
@@ -84,12 +80,11 @@ if(isset($_POST["room_no"])){
 <div class="room">
     <div class="card-form col-4 mt-3 p-3">
         <div class="card-title ">
-            <?php if (isset($_GET["editId"])){?>
-                <h2 class="text-center" style="color: var(--nav-color);">Update Room</h2>
-            <?php }else { ?>
-                <h2 class="text-center" style="color: var(--nav-color);">Add Room</h2>
-            <?php }?>
-   
+                <?php if (isset($_GET["editId"])){?>
+                    <h2 class="text-center" style="color: var(--nav-color);">Update Room</h2>
+                <?php }else { ?>
+                    <h2 class="text-center" style="color: var(--nav-color);">Add Room</h2>
+                <?php }?>
         </div>
         <div class="card-body">
             <form method="post">
@@ -162,7 +157,10 @@ if(isset($_POST["room_no"])){
 } ?>
 
     <div class="card-form col-7 mt-3 p-3">
-        <h2 class="text-center" style="color: var(--nav-color);">Room List</h2>
+        <div class="d-flex p-3">
+            <h2 class="" style="color: var(--nav-color);">Room List</h2>
+            <a href="./index.php" class="btn btn-success btn_sm ms-auto">Home</a>
+        </div> 
         <div class="card-body p-3">
            <div class="card">
                 <div class="card-body">
