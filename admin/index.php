@@ -70,7 +70,7 @@
         <div class="card col-2">
             <div class="card-body">
                 <i class="fa-solid fa-hotel"></i>
-                <a href="./reception/index.php" class="card-title card-role">reception view</a>
+                <a href="../reception/index.php" class="card-title card-role">reception view</a>
             </div>
         </div>
     </div>

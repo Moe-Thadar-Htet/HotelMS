@@ -1,7 +1,7 @@
 <?php 
 function  add_customer($mysqli,$customer_name,$nrc,$phone_no,$email)
 {
-    $sql = "INSERT INTO `user` (`customer_name`,`nrc`,`phone_no`,`email`) VALUE ('$customer_name','$nrc','$phone_no','$email')";
+    $sql = "INSERT INTO `customer` (`customer_name`,`nrc`,`phone_no`,`email`) VALUE ('$customer_name','$nrc','$phone_no','$email')";
     return $mysqli->query($sql);
 }
 function get_customer($mysqli)
@@ -25,7 +25,7 @@ function delete_customer($mysqli,$id)
 
 function update_customer($mysqli,$id,$customer_name,$nrc,$phone_no,$email)
 {
-    $sql = "UPDATE `customer` SET `customer_name` = '$customer_name',`nrc`= '$nrc',`phone_no`= '$phone_no' `email` = '$email' WHERE `id` = $id";
+    $sql = "UPDATE `customer` SET `customer_name` = '$customer_name',`nrc`= '$nrc',`phone_no`= '$phone_no' ,`email` = '$email' WHERE `id` = $id";
     return $mysqli->query($sql);
 }
 

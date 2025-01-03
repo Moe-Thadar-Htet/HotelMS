@@ -25,22 +25,22 @@ function create_tables($mysqli)
         return false;
     }
 
-    $sql = "CREATE TABLE IF NOT EXISTS `room`(`id` INT AUTO_INCREMENT,`room_no` VARCHAR(45) NOT NULL,`room_type` INT NOT NULL,`single_bed` INT NOT NULL ,`double_bed` INT NOT NULL ,`twin_bed` INT NOT NULL ,`price` INT NOT NULL,`taken` BOOLEAN NOT NULL,PRIMARY KEY(`id`),FOREIGN KEY (`room_type`) REFERENCES `room_type`(`id`))";
+    $sql = "CREATE TABLE IF NOT EXISTS `room`(`id` INT AUTO_INCREMENT,`room_no` VARCHAR(45) UNIQUE NOT NULL,`room_type` INT NOT NULL,`single_bed` INT NOT NULL ,`double_bed` INT NOT NULL ,`twin_bed` INT NOT NULL ,`price` INT NOT NULL,`taken` BOOLEAN NOT NULL,PRIMARY KEY(`id`),FOREIGN KEY (`room_type`) REFERENCES `room_type`(`id`))";
     if (!$mysqli->query($sql)) {
         return false;
     }
-    
-    $sql = "CREATE TABLE IF NOT EXISTS `customer` (`id` INT AUTO_INCREMENT,`customer_name` VARCHAR(45) NOT NULL,`nrc` VARCHAR(45) NOT NULL,`phone_no` INT NOT NULL ,`email` VARCHAR(100) NOT NULL,PRIMARY KEY (`id`))";
+      $sql = "CREATE TABLE IF NOT EXISTS `booking`(`id` INT AUTO_INCREMENT,`room_id` INT NOT NULL,`checkin_date` DATETIME NOT NULL,`checkout_date` DATETIME NOT NULL,`customer_id` INT NOT NULL ,PRIMARY KEY (`id`),FOREIGN KEY (`customer_id`) REFERENCES `customer`(`id`),FOREIGN KEY (`room_id`) REFERENCES `room`(`id`))";
     if (!$mysqli->query($sql)) {
         return false;
     }
 
-    $sql = "CREATE TABLE IF NOT EXISTS `booking`(`id` INT AUTO_INCREMENT,`checkin_time` TIME NOT NULL,`checkout_out` TIME NOT NULL,`customer_id` INT NOT NULL ,`room_id` INT NOT NULL ,PRIMARY KEY (`id`),FOREIGN KEY (`customer_id`) REFERENCES `customer`(`id`),FOREIGN KEY (`room_id`) REFERENCES `room`(`id`))";
+    $sql = "CREATE TABLE IF NOT EXISTS `room_booking`(`id` INT AUTO_INCREMENT,`booking_id` INT NOT NULL,`checkout_time` DATETIME NOT NULL,`extra_bed` INT NOT NULL,`status` BOOLEAN NOT NULL,PRIMARY KEY(`id`),FOREIGN KEY (`booking_id`) REFERENCES `booking`(`id`))";
     if (!$mysqli->query($sql)) {
         return false;
     }
-    
-    $sql = "CREATE TABLE IF NOT EXISTS `room_booking`(`id` INT AUTO_INCREMENT,`booking_id` INT NOT NULL,`extra_bed` INT NOT NULL ,`status` BOOLEAN NOT NULL ,PRIMARY KEY (`id`),FOREIGN KEY (`booking_id`) REFERENCES `booking`(`id`))";
+
+
+    $sql = "CREATE TABLE IF NOT EXISTS `customer` (`id` INT AUTO_INCREMENT,`customer_name` VARCHAR(45) NOT NULL,`nrc` VARCHAR(45) NOT NULL,`phone_no` INT NOT NULL ,`email` VARCHAR(100) NOT NULL,PRIMARY KEY (`id`))";
     if (!$mysqli->query($sql)) {
         return false;
     }
@@ -50,7 +50,7 @@ function create_tables($mysqli)
         return false;
     }
 
-    $sql = "CREATE TABLE IF NOT EXISTS `duty` (`id` INT AUTO_INCREMENT,`duty_name` VARCHAR(45) NOT NULL,`start_time` DATETIME NOT NULL,`end_time` DATETIME NOT NULL,PRIMARY KEY (`id`))";
+    $sql = "CREATE TABLE IF NOT EXISTS `duty` (`id` INT AUTO_INCREMENT,`duty_name` VARCHAR(45) NOT NULL,`start_time` TIME NOT NULL,`end_time` TIME NOT NULL,PRIMARY KEY (`id`))";
     if (!$mysqli->query($sql)) {
         return false;
     }

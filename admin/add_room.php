@@ -34,10 +34,10 @@ if(isset($_GET["editId"])){
 if(isset($_POST["room_no"])){
     $room_no   = $_POST["room_no"];
     $room_type = $_POST["room_type"];
-    $single_bed       = $_POST["single_bed"];
-    $double_bed       = $_POST["double_bed"];
-    $twin_bed       = $_POST["twin_bed"];
-    $price     = $_POST["price"];
+    $single_bed = $_POST["single_bed"];
+    $double_bed = $_POST["double_bed"];
+    $twin_bed   = $_POST["twin_bed"];
+    $price      = $_POST["price"];
 
      if($room_no ===  ""){
         $room_no_err =" Room Number can't be blanked!";
@@ -50,11 +50,11 @@ if(isset($_POST["room_no"])){
      if($single_bed ===  ""){
         $single_bed_err ="Single Bed can't be blanked!";
         $invalid = false;
-     }
+        }
      if($double_bed ===  ""){
         $double_bed_err ="Double Bed can't be blanked!";
         $invalid = false;
-     }
+    }
      if($twin_bed ===  ""){
         $twin_bed_err ="Twin Bed can't be blanked!";
         $invalid = false;
@@ -87,12 +87,11 @@ if(isset($_POST["room_no"])){
 <div class="room">
     <div class="card-form col-4 mt-3 p-3">
         <div class="card-title ">
-            <?php if (isset($_GET["editId"])){?>
-                <h2 class="text-center" style="color: var(--nav-color);">Update Room</h2>
-            <?php }else { ?>
-                <h2 class="text-center" style="color: var(--nav-color);">Add Room</h2>
-            <?php }?>
-   
+                <?php if (isset($_GET["editId"])){?>
+                    <h2 class="text-center" style="color: var(--nav-color);">Update Room</h2>
+                <?php }else { ?>
+                    <h2 class="text-center" style="color: var(--nav-color);">Add Room</h2>
+                <?php }?>
         </div>
         <div class="card-body">
             <form method="post">
@@ -165,7 +164,10 @@ if(isset($_POST["room_no"])){
 } ?>
 
     <div class="card-form col-7 mt-3 p-3">
-        <h2 class="text-center" style="color: var(--nav-color);">Room List</h2>
+        <div class="d-flex p-3">
+            <h2 class="" style="color: var(--nav-color);">Room List</h2>
+            <a href="./index.php" class="btn btn-success btn_sm ms-auto">Home</a>
+        </div> 
         <div class="card-body p-3">
            <div class="card">
                 <div class="card-body">
@@ -184,7 +186,7 @@ if(isset($_POST["room_no"])){
                             <option value="5" <?php if($selected=='5') echo "selected"?>>5th Floor</option>
                         </select>
                     </form>
-                    <table class="table table-bordered  table-striped">
+                    <table class="table table-bordered  table-striped">``
                         <thead>
                             <tr>
                                 <th>Id</th>
