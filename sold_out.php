@@ -11,7 +11,7 @@
                     <h6><i class="text-primary">Odd Number = Twin Bed</i></h6>
                 </div> -->
                 <div class="container mt-5">
-                    <?php $superior = get_available_superior_rooms($mysqli) ?>
+                    <?php $superior = get_sold_out_superior_rooms($mysqli) ?>
                     <div class="row g-3">
                         <?php while($room = $superior->fetch_assoc()){ ?>
                             <div class="col-2">
@@ -24,7 +24,6 @@
                                     echo "yellow";
                                 }
                                 ?>">
-                                    <span><?= $room['room_type_name'] ?></span>
                                     <h1><?= $room['room_no'] ?></h1>
                                     <?php if($room['taken'] != 0){ ?>
                                         <h6 class="btn btn-outline-dark"
@@ -62,7 +61,7 @@
                 </div> -->
                 <!-- Grid container for buttons -->
                 <div class="container mt-5">
-                <?php $deluxe = get_available_deluxe_rooms($mysqli) ?>
+                <?php $deluxe = get_sold_out_deluxe_rooms($mysqli) ?>
                     <div class="row g-3">
                     <?php while($room = $deluxe->fetch_assoc()){ ?>
                             <div class="col-2">

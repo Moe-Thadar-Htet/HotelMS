@@ -1,6 +1,5 @@
 
 <script>
-        // Get references to all buttons
         let allroom = document.getElementById("all-room");
         let available = document.getElementById("available");
         let soldout = document.getElementById("sold-out");

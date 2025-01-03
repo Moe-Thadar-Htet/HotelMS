@@ -1,9 +1,14 @@
 <?php require_once("../layout/header.php")?>
 <?php require_once("../layout/navbar.php")?>
 <?php
+
+$pageTotal = get_user_pag_count($mysqli);
+$currentPage = 0;
+
 $room_no = $room_no_err ="";
 $room_type = $room_type_err = "";
 $single_bed = $single_bed_err = "";
+$bed = $bed_error = "";
 $double_bed = $double_bed_err = "";
 $twin_bed = $twin_bed_err = "";
 $price = $price_err ="";
@@ -38,7 +43,7 @@ if(isset($_POST["room_no"])){
         $room_no_err =" Room Number can't be blanked!";
         $invalid     = false;
      }
-     if($room_type ===  "" || $selected_room_type === ""){
+     if($room_type ===  ""){
         $room_type_err =" Room Type can't be blanked!";
         $invalid       = false;
      }
@@ -62,18 +67,16 @@ if(isset($_POST["room_no"])){
 
      if($invalid){
         if(isset($_GET["editId"])){
-            $update = update_room($mysqli,$editId,$room_no,$room_type,$bed,$price,0);
+            $update = update_room($mysqli,$editId,$room_no,$room_type,$single_bed, $double_bed, $twin_bed,$price,0);
             if($update){
                 echo "<script>location.replace('./add_room.php')</script>";
             }
         }else{
-            if(add_room($mysqli,$room_no,$room_type,$bed,$price,0)){
-                if($room_type == ""){
+            if(add_room($mysqli,$room_no,$room_type,$single_bed, $double_bed, $twin_bed,$price,0)){
                     echo "<script>location.replace('./add_room.php')</script>";
-                }else{
-                    $invalid = true;
-                }      
-            }
+            }else{
+                $invalid = true;
+            } 
         }
     }
      }
@@ -166,6 +169,21 @@ if(isset($_POST["room_no"])){
         <div class="card-body p-3">
            <div class="card">
                 <div class="card-body">
+                    <?php require_once("../layout/selectfloor.php") ?>
+                    <form action="" method="post" id="select-floor">
+                        <select name="floor" id="floor">
+                            <?php
+                                $selected = '1';
+                            if(isset($_POST['floor'])){
+                                $selected = $_POST['floor'];
+                            }?>
+                            <option value="1" <?php if($selected=='1') echo "selected"?>>1st Floor</option>
+                            <option value="2" <?php if($selected=='2') echo "selected"?>>2nd Floor</option>
+                            <option value="3" <?php if($selected=='3') echo "selected"?>>3rd Floor</option>
+                            <option value="4" <?php if($selected=='4') echo "selected"?>>4th Floor</option>
+                            <option value="5" <?php if($selected=='5') echo "selected"?>>5th Floor</option>
+                        </select>
+                    </form>
                     <table class="table table-bordered  table-striped">
                         <thead>
                             <tr>
@@ -176,18 +194,21 @@ if(isset($_POST["room_no"])){
                                 <th>Double Bed</th>
                                 <th>Twin Bed</th>
                                 <th>Price</th>
-                                <th>Action</th>
+                                <th style="width: 100px;">Action</th>
                             
                             </tr>
                         </thead>
                         <tbody> 
-                            <?php $rooms= get_room($mysqli);
+                            <?php $rooms = get_room_by_floor($mysqli,"10");
+                            if(isset($_POST['floor'])){
+                                $rooms = get_room_by_floor($mysqli,$_POST['floor']);
+                            }
                             $i =1;?>
                             <?php while($room= $rooms->fetch_assoc()){ ?>
                             <tr>
                                 <td><?=$i ?></td>
                                 <td><?=$room["room_no"] ?></td>
-                                <td><?=$room["room_type"] ?></td>
+                                <td><?=$room["room_type_name"] ?></td>
                                 <td><?=$room["single_bed"] ?></td>
                                 <td><?=$room["double_bed"] ?></td>
                                 <td><?=$room["twin_bed"] ?></td>
@@ -207,5 +228,17 @@ if(isset($_POST["room_no"])){
         </div>
     </div>
 </div>
+
+<script>
+    // window.onload = function() {
+    //     const floorSelect = document.getElementById('floorSelect');
+        
+    //     floorSelect.value = "1";
+    // };
+
+    $('#floor').on("change",function(){
+        $('#select-floor').submit();
+    });
+</script>
 
 <?php require_once("../layout/footer.php")?>

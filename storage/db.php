@@ -6,7 +6,6 @@ try{
     if($mysqli->query($sql)){
         if($mysqli-> select_db("HMS")){
             create_tables($mysqli);
-            // seeding($mysqli);
         }
     }
 
@@ -20,7 +19,6 @@ function create_tables($mysqli)
     if(!$mysqli->query($sql)){
         return false;
     }
-
     
     $sql = "CREATE TABLE IF NOT EXISTS `room_type`(`id` INT AUTO_INCREMENT,`room_type_name` VARCHAR(45) NOT NULL,`description` VARCHAR(100) NOT NULL, PRIMARY KEY(`id`))";
     if (!$mysqli->query($sql)) {
@@ -31,8 +29,8 @@ function create_tables($mysqli)
     if (!$mysqli->query($sql)) {
         return false;
     }
-  
-    $sql = "CREATE TABLE IF NOT EXISTS `room_booking`(`id` INT AUTO_INCREMENT,`booking_id` INT NOT NULL,`extra_bed` INT NOT NULL ,`status` BOOLEAN NOT NULL ,PRIMARY KEY (`id`),FOREIGN KEY (`booking_id`) REFERENCES `booking`(`id`))";
+    
+    $sql = "CREATE TABLE IF NOT EXISTS `customer` (`id` INT AUTO_INCREMENT,`customer_name` VARCHAR(45) NOT NULL,`nrc` VARCHAR(45) NOT NULL,`phone_no` INT NOT NULL ,`email` VARCHAR(100) NOT NULL,PRIMARY KEY (`id`))";
     if (!$mysqli->query($sql)) {
         return false;
     }
@@ -41,9 +39,8 @@ function create_tables($mysqli)
     if (!$mysqli->query($sql)) {
         return false;
     }
-
     
-    $sql = "CREATE TABLE IF NOT EXISTS `customer` (`id` INT AUTO_INCREMENT,`customer_name` VARCHAR(45) NOT NULL,`nrc` VARCHAR(45) NOT NULL,`phone_no` INT NOT NULL ,`email` VARCHAR(100) NOT NULL,PRIMARY KEY (`id`))";
+    $sql = "CREATE TABLE IF NOT EXISTS `room_booking`(`id` INT AUTO_INCREMENT,`booking_id` INT NOT NULL,`extra_bed` INT NOT NULL ,`status` BOOLEAN NOT NULL ,PRIMARY KEY (`id`),FOREIGN KEY (`booking_id`) REFERENCES `booking`(`id`))";
     if (!$mysqli->query($sql)) {
         return false;
     }

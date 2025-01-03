@@ -1,24 +1,16 @@
 
 .room-btn {
-    width: 100%;
-    height: 120px;
-    border-radius: 15px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border: none;
-    font-size: 2em;
-    text-align: center;
+    width: 100%; height: 120px; border-radius: 15px; background-color: green;
 }
 
 .green {
     background-color: green;
-    color: white;
+    color: black;
 }
 
 .red {
     background-color: red;
-    color: white;
+    color: black;
 }
 
 .yellow {
