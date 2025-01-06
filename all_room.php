@@ -1,4 +1,3 @@
-
 <div style="margin-top: 120px;">
     <section id="superior">
         <div class="card shadow">
@@ -13,35 +12,34 @@
                 <div class="container mt-5">
                     <?php $superior = get_superior_rooms($mysqli) ?>
                     <div class="row g-3">
-                        <?php while($room = $superior->fetch_assoc()){ ?>
+                        <?php while ($room = $superior->fetch_assoc()) { ?>
                             <div class="col-2">
-                                <button class="room-btn <?php 
-                                if($room['taken'] == 0){ 
-                                    echo "green"; 
-                                }else if($room['taken'] == 1){
-                                    echo "red";
-                                }else{
-                                    echo "yellow";
-                                }
-                                ?>">
-                                <span><?= $room['room_type_name'] ?></span>
+                                <button data-bs-toggle="modal"
+                                    data-bs-target="#<?php
+                                                        if ($room['taken'] == 0) {
+                                                            echo "addModal";
+                                                        } else if ($room['taken'] == 1) {
+                                                            echo "customerModal";
+                                                        } else {
+                                                            echo "bookingModal";
+                                                        }
+                                                        ?>"
+                                    class="room-btn <?php
+                                                    if ($room['taken'] == 0) {
+                                                        echo "green";
+                                                    } else if ($room['taken'] == 1) {
+                                                        echo "red";
+                                                    } else {
+                                                        echo "yellow";
+                                                    }
+                                                    ?>">
+                                    <span><?= $room['room_type_name'] ?></span>
                                     <h1><?= $room['room_no'] ?></h1>
-                                    <?php if($room['taken'] != 0){ ?>
-                                        <h6 class="btn btn-outline-dark"
-                                        data-bs-toggle="modal" 
-                                        data-bs-target="#customerModal"
-                                        data-name="" 
-                                        data-nrc="" 
-                                        data-phone=""
-                                        data-email=""
-                                        data-room =""
-                                        onclick="showCustomerDetails(this)">View Details</h6>
-                                    <?php } ?>
                                 </button>
                             </div>
 
                         <?php } ?>
-                        
+
                     </div>
                 </div>
             </div>
@@ -62,33 +60,31 @@
                 </div> -->
                 <!-- Grid container for buttons -->
                 <div class="container mt-5">
-                <?php $deluxe = get_deluxe_rooms($mysqli) ?>
+                    <?php $superior = get_deluxe_rooms($mysqli) ?>
                     <div class="row g-3">
-                    <?php while($room = $deluxe->fetch_assoc()){ ?>
+                        <?php while ($room = $superior->fetch_assoc()) { ?>
                             <div class="col-2">
-                                <button class="room-btn <?php 
-                                if($room['taken'] == 0){ 
-                                    echo "green"; 
-                                }else if($room['taken'] == 1){
-                                    echo "red";
-                                }else{
-                                    echo "yellow";
-                                }
-                                ?>
-
-                                ">
+                                <button data-bs-toggle="modal"
+                                    data-bs-target="#<?php
+                                                        if ($room['taken'] == 0) {
+                                                            echo "addModal";
+                                                        } else if ($room['taken'] == 1) {
+                                                            echo "customerModal";
+                                                        } else {
+                                                            echo "bookingModal";
+                                                        }
+                                                        ?>"
+                                    class="room-btn <?php
+                                                    if ($room['taken'] == 0) {
+                                                        echo "green";
+                                                    } else if ($room['taken'] == 1) {
+                                                        echo "red";
+                                                    } else {
+                                                        echo "yellow";
+                                                    }
+                                                    ?>">
+                                    <span><?= $room['room_type_name'] ?></span>
                                     <h1><?= $room['room_no'] ?></h1>
-                                    <?php if($room['taken'] != 0){ ?>
-                                        <h6 class="btn btn-outline-dark"
-                                        data-bs-toggle="modal" 
-                                        data-bs-target="#customerModal"
-                                        data-name="" 
-                                        data-nrc="" 
-                                        data-phone=""
-                                        data-email=""
-                                        data-room =""
-                                        onclick="showCustomerDetails(this)">View Details</h6>
-                                    <?php } ?>
                                 </button>
                             </div>
 
@@ -99,43 +95,156 @@
         </div>
     </section>
 </div>
-    <div class="modal fade" id="customerModal" tabindex="-1" aria-labelledby="customerModalLabel" aria-hidden="true">
+<div class="modal fade" id="customerModal">
     <div class="modal-dialog">
         <div class="modal-content">
-        <div class="modal-header">
-            <h5 class="modal-title" id="customerModalLabel">Customer Information</h5>
-            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-        <div class="modal-body">
-            <div id="customerInfo">
-            <p><strong>Name:</strong> <span id="customerName"></span></p>
-            <p><strong>NRC:</strong> <span id="customerNrc"></span></p>
-            <p><strong>Phone:</strong> <span id="customerPhone"></span></p>
-            <p><strong>Email:</strong> <span id="roomNo"></span></p>
-            <p><strong>Room No:</strong> <span id="roomNo"></span></p>
+                <div class="modal-header">
+                <h5 class="modal-title">Room Number: 
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <p>Customer Name: </p>
+                <p>NRC: </p>
+                <p>Phone Number: </p>
+                <p>Email Address: </p>
+                <p>Check In Date: </p>
+                <p>Check Out Date: </p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-success">Make it Available</button>
             </div>
         </div>
-        <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="bookingModal">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Room Number: </h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="modal-body">
+                    <p>Customer Name: </p>
+                    <p>Phone Number: </p>
+                    <p>Check In Date: </p>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-success">Make it Available</button>
+                <button type="button" data-bs-toggle="modal" data-bs-target="#sellRoomModal" class="btn btn-danger">Make it Sold-out</button>
+            </div>
         </div>
     </div>
+</div>
+
+<div class="modal fade" id="addModal">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Room Number: </h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+
+            </div>
+            <div class="modal-body">
+                <button type="button" data-bs-toggle="modal" data-bs-target="#sellRoomModal" class="btn btn-danger" style="width: 48%; height: 50px">Sell a room</button>
+                <button type="submit" data-bs-toggle="modal" data-bs-target="#bookRoomModal" class="btn btn-warning" style="width: 48%; height: 50px">Book a room</button>
+            </div>
+        </div>
     </div>
 
-    <script>
-    function showCustomerDetails(button) {
-        var customerName = button.getAttribute('data-name');
-        var customerNrc = button.getAttribute('data-nrc')
-        var customerPhone = button.getAttribute('data-phone');
-        var customerEmail = button.getAttribute('data-email');
-        var roomNo = button.getAttribute('data-room');
-        
-        document.getElementById('customerName').textContent = customerName;
-        document.getElementById('customerNrc').textContent = customerNrc;
-        document.getElementById('customerPhone').textContent = customerPhone;
-        document.getElementById('customerEmail').textContent = customerEmail;
-        document.getElementById('roomNo').textContent = roomNo;
-    }
-</script>
+</div>
+<div class="modal fade" id="sellRoomModal">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Room Number: </h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form method="post">
+                    <div class="form-floating mt-2">
+                        <input type="name" name="name" class="form-control" id="name" placeholder="Enter customer name" />
+                        <label for="name" class="form-label">Customer Name</label>
+                    </div>
+                    <div class="form-floating mt-2">
+                        <input type="nrc" name="nrc" class="form-control" id="nrc" placeholder="NRC" />
+                        <label for="nrc" class="form-label">NRC</label>
+                    </div>
+
+                    <div class="form-floating mt-2">
+                        <input type="phoneNumber" name="phoneNumber" class="form-control" id="phoneNumber" placeholder="Phone Number" />
+                        <label for="phoneNumber" class="form-label">Phone Number</label>
+                    </div>
+
+                    <div class="form-floating mt-2">
+                        <input type="email" name="email" class="form-control" id="email" placeholder="email" />
+                        <label for="email" class="form-label">Email Address</label>
+                    </div>
+
+                    <div class="form-floating mt-2">
+                        <div class="mt-4">Check-in Date
+                            <input type="date" name="checkin" class="form-control" id="checkin" required="">
+                        </div>
+                        <div class="mt-4">Check-out Date
+                            <input type="date" name="checkout" class="form-control" id="checkout" required="">
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-danger">Sell a Room</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="bookRoomModal">
+    <div class="modal-dialog">
+        <form method="post">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Room Number: </h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+
+
+
+
+                <div class="modal-body">
+                    <div class="form-floating mt-2">
+                        <input type="name" name="name" class="form-control" id="name" placeholder="Enter customer name" />
+                        <label for="name" class="form-label">Customer Name</label>
+                    </div>
+
+                    <div class="form-floating mt-2">
+                        <input type="email" email="email" class="form-control" id="email" placeholder="Enter customer email" />
+                        <label for="email" class="form-label">Email Address</label>
+                    </div>
+
+                    <div class="form-floating mt-2">
+                        <input type="phoneNumber" name="phoneNumber" class="form-control" id="phoneNumber" placeholder="Phone Number" />
+                        <label for="phoneNumber" class="form-label">Phone Number</label>
+                    </div>
+
+                    <div class="form-floating mt-2">
+                        <div class="mt-4">Check-in Date
+                            <input type="date" name="checkin" class="form-control" id="checkin" required="">
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-warning">Book</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+</div>
 
 <?php require_once("../layout/footer2.php") ?>

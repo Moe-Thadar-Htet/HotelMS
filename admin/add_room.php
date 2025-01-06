@@ -186,7 +186,7 @@ if(isset($_POST["room_no"])){
                             <option value="5" <?php if($selected=='5') echo "selected"?>>5th Floor</option>
                         </select>
                     </form>
-                    <table class="table table-bordered  table-striped">``
+                    <table class="table table-bordered  table-striped">
                         <thead>
                             <tr>
                                 <th>Id</th>

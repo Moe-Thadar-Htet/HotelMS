@@ -40,9 +40,11 @@
                             </a>
                         </li>
                         <li>
-                            <a class="dropdown-item d-flex justify-content-between align-items-center" href="#">
+                            <form method="post">
+                            <button name="logout" class="dropdown-item d-flex justify-content-between align-items-center">
                                 Logout <i class="fa fa-sign-out-alt"></i>
-                            </a>
+                            </button>
+                            </form>
                         </li>
                     </ul>
                 </div>
@@ -51,3 +53,5 @@
             
         </div>
     </div>
+
+    
