@@ -14,7 +14,7 @@
                     <div class="row g-3">
                         <?php while ($room = $superior->fetch_assoc()) { ?>
                             <div class="col-2">
-                                <button data-bs-toggle="modal"
+                                <button data-id="<?= $room['id'] ?>" data-value="<?= $room['room_no'] ?>" data-bs-toggle="modal"
                                     data-bs-target="#<?php
                                                         if ($room['taken'] == 0) {
                                                             echo "addModal";
@@ -99,7 +99,7 @@
     <div class="modal-dialog">
         <div class="modal-content">
                 <div class="modal-header">
-                <h5 class="modal-title">Room Number: 
+                <h5 class="modal-title">Room Number: <span class="room-no-value"></span>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
@@ -122,7 +122,7 @@
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title">Room Number: </h5>
+                <h5 class="modal-title">Room Number: <span class="room-no-value"></span></h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
@@ -145,7 +145,7 @@
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title">Room Number: </h5>
+                <h5 class="modal-title">Room Number: <span class="room-no-value"></span></h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
 
             </div>
@@ -161,7 +161,7 @@
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title">Room Number: </h5>
+                <h5 class="modal-title">Room Number: <span class="room-no-value"></span></h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
@@ -208,7 +208,7 @@
         <form method="post">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title">Room Number: </h5>
+                    <h5 class="modal-title">Room Number: <span class="room-no-value"></span>  </h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
 

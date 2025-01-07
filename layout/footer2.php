@@ -1,5 +1,4 @@
-
-<script src="../asset/js2/main.js"></script>
+<!-- <script src="../asset/js2/main.js"></script> -->
 <script>
     let allroom = document.getElementById("all-room");
     let available = document.getElementById("available");
@@ -57,13 +56,26 @@
     const checkinField = document.getElementById('checkin');
     const checkoutField = document.getElementById('checkout');
 
-    checkinField.addEventListener('change', function() {
+    checkinField.addEventListener('change', function () {
         const checkinDate = checkinField.value;
 
         const newMinCheckoutDate = new Date(checkinDate);
         newMinCheckoutDate.setDate(newMinCheckoutDate.getDate() + 1);
         checkoutField.setAttribute('min', newMinCheckoutDate.toISOString().split('T')[0]);
     });
+</script>
+<script>
+    let roomBtn = document.querySelectorAll(".room-btn");
+    for (let i = 0; i < roomBtn.length; i++) {
+        const element = roomBtn[i];
+        element.addEventListener("click", function () {
+            let roomNumbers = document.querySelectorAll(".room-no-value");
+            roomNumbers.forEach(el => {
+                el.innerHTML = element.getAttribute("data-value");
+            });
+        })
+
+    }
 </script>
 </body>
 
