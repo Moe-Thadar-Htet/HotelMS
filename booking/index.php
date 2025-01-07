@@ -448,7 +448,7 @@
           <div class="loading">Loading</div>
           <div class="error-message"></div>
           <div class="sent-message">Your booking request was sent. We will call back or send an Email to confirm your reservation. Thank you!</div>
-          <button type="submit">Book a Room</button>
+          <button type="submit" id="openModalButton">Book a Room</button>
         </div>
       </form>
     </div><!-- End Booking Form -->
@@ -584,6 +584,24 @@
   <!-- Preloader -->
   <div id="preloader"></div>
 
+    <div class="modal" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Booked</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <p>Modal body text goes here.</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
   <!-- Vendor JS Files -->
   <script src="../asset/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
   <script src="../asset/vendor/php-email-form/validate.js"></script>
