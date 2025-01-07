@@ -131,7 +131,7 @@ if(isset($_POST["booking_id"])){
     <div class="card-form col-7 mt-3 p-3">
     <div class="d-flex p-3">
             <h2 class="" style="color: var(--nav-color);">Room Booking List</h2>
-            <a href="./index.php" class="btn btn-success btn_sm ms-auto">Home</a>
+            <a href="./index.php" class="btn btn-outline-success btn-sm ms-auto">Home</a>
         </div> 
         <div class="card-body p-3">
            <div class="card">

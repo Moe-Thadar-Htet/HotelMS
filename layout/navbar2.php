@@ -6,11 +6,17 @@
             </a>
 
             <ul class="navbar-nav">
-            <li class="nav-item">
+                <li class="nav-item">
+                    <a href="../admin/index.php" class="nav-link" >
+                        <span class="nav-text btn btn-outline-light ms-auto" id="home">Home<i class="fa fa-home"></i></span>
+                    </a>
+                <li>
+
+                <li class="nav-item">
                     <a href="./index.php" class="nav-link" >
                         <span class="nav-text btn btn-outline-info ms-auto" id="all-room">All Rooms <i class="fa fa-bed"></i></span>
                     </a>
-                    <li>
+                <li>
                 <li class="nav-item">
                     <a href="./index.php?available" class="nav-link active">
                         <span class="nav-text btn btn-outline-success ms-auto" id="available">Available <i class="fa fa-broom"></i></span>
@@ -40,9 +46,11 @@
                             </a>
                         </li>
                         <li>
-                            <a class="dropdown-item d-flex justify-content-between align-items-center" href="#">
-                                Logout <i class="fa fa-sign-out-alt"></i>
-                            </a>
+                            <form method="post">
+                                <button class="dropdown-item d-flex justify-content-between align-items-center" name="logout">
+                                    Logout <i class="fa fa-sign-out-alt"></i>
+                                </button>
+                            </form>
                         </li>
                     </ul>
                 </div>

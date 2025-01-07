@@ -166,13 +166,13 @@ if(isset($_POST["room_no"])){
     <div class="card-form col-7 mt-3 p-3">
         <div class="d-flex p-3">
             <h2 class="" style="color: var(--nav-color);">Room List</h2>
-            <a href="./index.php" class="btn btn-success btn_sm ms-auto">Home</a>
+            <a href="./index.php" class="btn btn-outline-success btn-sm ms-auto">Home</a>
         </div> 
         <div class="card-body p-3">
            <div class="card">
                 <div class="card-body">
-                    <?php require_once("../layout/selectfloor.php") ?>
-                    <form action="" method="post" id="select-floor">
+              <!-- require_once("../layout/selectfloor.php") -->
+                    <form action="" method="post" id="select-floor" class="mb-3">
                         <select name="floor" id="floor">
                             <?php
                                 $selected = '1';
@@ -186,7 +186,7 @@ if(isset($_POST["room_no"])){
                             <option value="5" <?php if($selected=='5') echo "selected"?>>5th Floor</option>
                         </select>
                     </form>
-                    <table class="table table-bordered  table-striped">``
+                    <table class="table table-bordered  table-striped ">
                         <thead>
                             <tr>
                                 <th>Id</th>

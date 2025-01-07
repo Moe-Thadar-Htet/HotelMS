@@ -9,6 +9,8 @@
             require_once("../sold_out.php");
         } else if(isset($_GET['booked'])){
             require_once("../booked.php");
+        } else if(isset($_GET['home'])){
+            require_once("../admin/index.php");
         }else{
             require_once("../all_room.php");
         }

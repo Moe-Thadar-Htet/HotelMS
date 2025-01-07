@@ -1,7 +1,8 @@
+
 <?php
 
 try{
-    $mysqli = new mysqli("localhost","root", "");
+    $mysqli = new mysqli("127.0.0.1","root", "");
     $sql = "CREATE DATABASE IF NOT EXISTS `HMS`";
     if($mysqli->query($sql)){
         if($mysqli-> select_db("HMS")){
@@ -19,7 +20,11 @@ function create_tables($mysqli)
     if(!$mysqli->query($sql)){
         return false;
     }
-    
+    $sql = "CREATE TABLE IF NOT EXISTS `customer` (`id` INT AUTO_INCREMENT,`customer_name` VARCHAR(45) NOT NULL,`nrc` VARCHAR(45) NOT NULL,`phone_no` INT NOT NULL ,`email` VARCHAR(100) NOT NULL,PRIMARY KEY (`id`))";
+    if (!$mysqli->query($sql)) {
+        return false;
+    }
+
     $sql = "CREATE TABLE IF NOT EXISTS `room_type`(`id` INT AUTO_INCREMENT,`room_type_name` VARCHAR(45) NOT NULL,`description` VARCHAR(100) NOT NULL, PRIMARY KEY(`id`))";
     if (!$mysqli->query($sql)) {
         return false;
@@ -29,18 +34,13 @@ function create_tables($mysqli)
     if (!$mysqli->query($sql)) {
         return false;
     }
+    
       $sql = "CREATE TABLE IF NOT EXISTS `booking`(`id` INT AUTO_INCREMENT,`room_id` INT NOT NULL,`checkin_date` DATETIME NOT NULL,`checkout_date` DATETIME NOT NULL,`customer_id` INT NOT NULL ,PRIMARY KEY (`id`),FOREIGN KEY (`customer_id`) REFERENCES `customer`(`id`),FOREIGN KEY (`room_id`) REFERENCES `room`(`id`))";
     if (!$mysqli->query($sql)) {
         return false;
     }
 
     $sql = "CREATE TABLE IF NOT EXISTS `room_booking`(`id` INT AUTO_INCREMENT,`booking_id` INT NOT NULL,`checkout_time` DATETIME NOT NULL,`extra_bed` INT NOT NULL,`status` BOOLEAN NOT NULL,PRIMARY KEY(`id`),FOREIGN KEY (`booking_id`) REFERENCES `booking`(`id`))";
-    if (!$mysqli->query($sql)) {
-        return false;
-    }
-
-
-    $sql = "CREATE TABLE IF NOT EXISTS `customer` (`id` INT AUTO_INCREMENT,`customer_name` VARCHAR(45) NOT NULL,`nrc` VARCHAR(45) NOT NULL,`phone_no` INT NOT NULL ,`email` VARCHAR(100) NOT NULL,PRIMARY KEY (`id`))";
     if (!$mysqli->query($sql)) {
         return false;
     }
