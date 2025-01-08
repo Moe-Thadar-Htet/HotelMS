@@ -66,16 +66,20 @@
 </script>
 <script>
     let roomBtn = document.querySelectorAll(".room-btn");
+    let roomIdValue =document.querySelectorAll(".roomIdValue");
     for (let i = 0; i < roomBtn.length; i++) {
         const element = roomBtn[i];
         element.addEventListener("click", function () {
             let roomNumbers = document.querySelectorAll(".room-no-value");
             roomNumbers.forEach(el => {
                 el.innerHTML = element.getAttribute("data-value");
+                roomIdValue.forEach(elem=>{
+                    elem.value = element.getAttribute("data-id")
+                })
             });
         })
-
     }
+    
 </script>
 </body>
 

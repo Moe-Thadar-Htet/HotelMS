@@ -1,4 +1,11 @@
+<?php 
 
+if(isset($_POST["name"])){
+    $name = $_POST["name"];
+}
+
+
+?>
 <div style="margin-top: 120px;">
     <section id="superior">
         <div class="card shadow">
@@ -104,7 +111,7 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                <div class="modal-body">
+                 <div class="modal-body">
                     <p>Customer Name: </p>
                     <p>Phone Number: </p>
                     <p>Check In Date: </p>
@@ -129,11 +136,11 @@
             <div class="modal-body">
                 <form method="post">
                     <div class="form-floating mt-2">
-                        <input type="name" name="name" class="form-control" id="name" placeholder="Enter customer name" />
+                        <input type="text" name="name" class="form-control" id="name" placeholder="Enter Customer name" />
                         <label for="name" class="form-label">Customer Name</label>
                     </div>
                     <div class="form-floating mt-2">
-                        <input type="nrc" name="nrc" class="form-control" id="nrc" placeholder="NRC" />
+                        <input type="text" name="nrc" class="form-control" id="nrc" placeholder="NRC" />
                         <label for="nrc" class="form-label">NRC</label>
                     </div>
 
