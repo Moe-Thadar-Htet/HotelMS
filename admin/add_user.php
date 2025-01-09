@@ -2,11 +2,10 @@
 <?php require_once("../layout/navbar.php")?>
 <?php
 
-$staff_name= $staff_name_err ="";
-$age  = $age_err = "";
-$phone_no = $phone_no_err = "";
+$user_name= $user_name_err ="";
 $email= $email_err = "";
-$gender = $gender_err ="";
+$password = $password_err = "";
+$phone_number = $phone_number_err = "";
 $role = $role_err = "";
 $invalid = true;
 
@@ -17,7 +16,7 @@ if(isset($_GET["editId"])){
     $staff = get_staff_id($mysqli, $editId);
     $staff_name = $staff["staff_name"];
     $age        = $staff["age"];
-    $phone_no   = $staff["phone_no"];
+    $phone_no   = $staff["phone_number"];
     $email      = $staff["email"];
     $gender     = $staff["gender"];
     $role       = $staff["role"];
@@ -32,32 +31,27 @@ if(isset($_GET["deleteId"])){
 ?>
 <?php
   
-    if(isset($_POST["staff_name"])){
-        $staff_name = $_POST["staff_name"];
-        $age        = $_POST["age"];
-        $phone_no   = $_POST["phone_no"];
+    if(isset($_POST["user_name"])){
+        $user_name = $_POST["user_name"];
         $email      = $_POST["email"];
-        $gender    = $_POST["gender"];
+        $phone_number   = $_POST["phone_number"];
         $role       = $_POST["role"];
 
-        if($staff_name === ""){
-            $staff_name_err = "Staff name can't be blanked!";
-            $invalid = false;
-        }
-        if($age === ""){
-            $age_err = "Age can't be blanked!";
-            $invalid = false;
-        }
-        if($phone_no === ""){
-            $phone_no_err = "Phone Number can't be blanked!";
+        if($user_name === ""){
+            $user_name_err = "User name can't be blanked!";
             $invalid = false;
         }
         if($email === ""){
             $email_err = "Email can't be blanked!";
             $invalid = false;
+        
+       
+        if($phone_number === ""){
+            $phone_number_err = "Phone Number can't be blanked!";
+            $invalid = false;
         }
-        if($gender != "0" && $gender != "1"){
-            $gender_err = "Gender can't be blanked!";
+        if($email === ""){
+            $email_err = "Email can't be blanked!";
             $invalid = false;
         }
         if($role === ""){
@@ -67,7 +61,7 @@ if(isset($_GET["deleteId"])){
 
         if($invalid){
             if(isset($_GET["editId"])){
-                $update = update_staff($mysqli,$editId,$staff_name,$age,$phone_no,$email,$gender,$role);
+                $update = update_user($mysqli,$editId,$user_name,$age,$phone_no,$email,$gender,$role);
                 if($update){
                     echo"<script>location.replace(./add_staff.php)</script>";
                 }
@@ -79,8 +73,7 @@ if(isset($_GET["deleteId"])){
             }
         }
 
-    }
-?>
+    }}?>
 
 
 <div class="room">

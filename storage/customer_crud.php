@@ -1,7 +1,7 @@
 <?php 
-function  add_customer($mysqli,$customer_name,$nrc,$phone_no,$email)
+function  add_customer($mysqli,$customer_name,$nrc,$phone_no,$email,$checkin,$checkout)
 {
-    $sql = "INSERT INTO `customer` (`customer_name`,`nrc`,`phone_no`,`email`) VALUE ('$customer_name','$nrc','$phone_no','$email')";
+    $sql = "INSERT INTO `customer` (`customer_name`,`nrc`,`phone_no`,`email`,`checkin_date`,`checkout_date`) VALUE ('$customer_name','$nrc','$phone_no','$email','$checkin','$checkout')";
     return $mysqli->query($sql);
 }
 function get_customer($mysqli)
@@ -23,9 +23,9 @@ function delete_customer($mysqli,$id)
     return $mysqli->query($sql);
 }
 
-function update_customer($mysqli,$id,$customer_name,$nrc,$phone_no,$email)
+function update_customer($mysqli,$id,$customer_name,$nrc,$phone_no,$email,$checkin,$checkout)
 {
-    $sql = "UPDATE `customer` SET `customer_name` = '$customer_name',`nrc`= '$nrc',`phone_no`= '$phone_no' ,`email` = '$email' WHERE `id` = $id";
+    $sql = "UPDATE `customer` SET `customer_name` = '$customer_name',`nrc`= '$nrc',`phone_no`= '$phone_no' ,`email` = '$email',`checkin_date` = '$checkin',`checkout_date` = '$checkout' WHERE `id` = $id";
     return $mysqli->query($sql);
 }
 

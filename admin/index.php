@@ -7,7 +7,7 @@
             <div class="card-body">
                 <i class="fa-solid fa-hotel"></i>
                 <a href="./index.php" class="card-title card-role">Add Home</a>
-            </div>
+            </div> 
 
         </div>
         <div class="card col-2">
