@@ -10,32 +10,56 @@
         ?>
             <ul class="navbar-nav">
                 <li class="nav-item">
-                    <a href="../admin/index.php" class="nav-link" >
-                        <span class="nav-text btn btn-outline-light ms-auto" id="home">Home<i class="fa fa-home"></i></span>
+                    <a href="../admin/index.php" class="nav-link"  >
+                        <span class="nav-text btn btn-outline-light ms-auto" id="home">Home<i class="fa fa-home "style="padding-left: 5px;"></i></span>
                     </a>
                 <li>
 
                 <li class="nav-item">
-                    <a href="./index.php" class="nav-link" >
-                        <span class="nav-text btn btn-outline-info ms-auto" id="all-room">All Rooms <i class="fa fa-bed"></i></span>
+                    <a href="./index.php?allRoom" class="nav-link" >
+                        <span class="nav-text btn btn-outline-info ms-auto" 
+                        style="<?php
+                        if(isset($_GET['allRoom'])){
+                            echo "background-color: #10CAF0;color:#000000;";
+                        } 
+                        ?>"
+                        id="all-room">All Rooms <i class="fa fa-bed"></i></span>
                     </a>
                 <li>
                 <li class="nav-item">
-                    <a href="./index.php?available" class="nav-link active">
-                        <span class="nav-text btn btn-outline-success ms-auto" id="available">Available <i class="fa fa-broom"></i></span>
+                    <a href="./index.php?available" class="nav-link ">
+                        <span class="nav-text btn btn-outline-success ms-auto"
+                        style="<?php
+                        if(isset($_GET['available'])){
+                            echo "background-color: #198753;color:#FFFFFF;";
+                        } 
+                        ?>"
+                        id="available">Available <i class="fa fa-broom"></i></span>
                     </a>
                     <li>
                         <li class="nav-item">
-                            <a href="./index.php?soldout" class="nav-link active">
-                                <span class="nav-text btn btn-outline-danger ms-auto" id="sold-out">Sold Out<i class="fa fa-exclamation-triangle" style="padding-left: 5px;"></i></span>
+                            <a href="./index.php?soldout" class="nav-link ">
+                                <span class="nav-text btn btn-outline-danger ms-auto"
+                                style="<?php
+                                if(isset($_GET['soldout'])){
+                                        echo "background-color: #DC3444;color:#FFFFFF;";
+                                    } 
+                                ?>"
+                                id="sold-out">Sold Out<i class="fa fa-exclamation-triangle" style="padding-left: 5px;"></i></span>
                             </a>
                         </li>
                     </li>
                 </li>
                 
                 <li class="nav-item">
-                    <a href="./index.php?booked" class="nav-link active">
-                        <span class="nav-text btn btn-outline-warning ms-auto" id="booked">Booked<i class="fas fa-calendar-check" style="padding-left: 5px;"></i>
+                    <a href="./index.php?booked" class="nav-link ">
+                        <span class="nav-text btn btn-outline-warning ms-auto"
+                        style="<?php
+                                if(isset($_GET['booked'])){
+                                        echo "background-color: #FFC007;color:#000000;";
+                                    } 
+                                ?>"
+                        id="booked">Booked<i class="fas fa-calendar-check" style="padding-left: 5px;"></i>
                         </span>
                     </a>
                     <li>

@@ -1,9 +1,55 @@
 <?php 
-if(isset($_POST["name"])){
-    $name = $_POST["name"];
-    echo "hello";
-}
- ?>
+
+    $name = $email = $phonenumber = $date = "";
+    $name_err = $email_err = $phonenumber_err = $date_err = "";
+
+    if($_SERVER["REQUEST_METHOD"] == "POST") {
+        $name = $_POST["name"];
+        $email = $_POST["email"];
+        $phonenumber = $_POST["phonenumber"];
+        $date = $_POST["date"];
+        if(empty($name)) {
+            $name_err = "Name can't be  blank!";
+        } else {
+            $name = htmlspecialchars(trim($name));
+            if(!preg_match("/^[a-zA-Z-' ]*$/", $name)) {
+                $name_err = "Only letters and white space allowed in name.";
+            }
+        }
+
+        if(empty($email)) {
+            $email_err = "Email is Required";
+        } else {
+            $email = htmlspecialchars(trim($email));
+            if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+                $email_err = "Invalid email format.";
+            }
+        }
+
+        if(empty($phonenumber)) {
+            $phonenumber_err = "Phone Number is Required";
+        } else {
+            $phonenumber = htmlspecialchars(trim($phonenumber));
+            if(!preg_match('/^\d+$/', $phonenumber)) {
+                $phonenumber_err = "Only numbers are allowed.";
+            }
+        }
+
+        if(empty($date)) {
+            $date_err = "Choose your booking Date.";
+        }
+
+        if($name_err=="" && $email_err=="" && $phonenumber_err=="" && $date_err==""){
+            echo "<p>Form submitted successfully!</p>";
+
+            $name = $email = $phonenumber = $date = "";
+        }
+    }
+
+
+?>
+
+
 <div class="modal fade" id="bookRoomModal">
     <div class="modal-dialog">
         <form method="post">
@@ -15,23 +61,27 @@ if(isset($_POST["name"])){
                 </div>
                 <div class="modal-body">
                     <div class="form-floating mt-2">
-                        <input type="name" name="name" class="form-control" id="name" placeholder="Enter customer name" />
+                        <input type="text" name="name" value="<?= $name ?>" class="form-control" id="name" placeholder="Enter customer name" />
+                        <div style="color: red;"><?= $name_err ?></div>
                         <label for="name" class="form-label">Customer Name</label>
                     </div>
 
                     <div class="form-floating mt-2">
-                        <input type="email" email="email" class="form-control" id="email" placeholder="Enter customer email" />
+                        <input type="text" name="email" class="form-control" value="<?php echo htmlspecialchars($email); ?>"  id="email"  placeholder="Enter customer email" />
+                        <div style="color: red;"><?= $email_err ?></div>
                         <label for="email" class="form-label">Email Address</label>
                     </div>
 
                     <div class="form-floating mt-2">
-                        <input type="phoneNumber" name="phoneNumber" class="form-control" id="phoneNumber" placeholder="Phone Number" />
+                        <input type="text" name="phonenumber" value="<?php echo htmlspecialchars($phonenumber); ?>"class="form-control" id="phonenumber" placeholder="Phone Number" />
+                        <div style="color: red;"><?= $phonenumber_err ?></div>
                         <label for="phoneNumber" class="form-label">Phone Number</label>
                     </div>
 
                     <div class="form-floating mt-2">
                         <div class="mt-4">Check-in Date
-                            <input type="date" name="checkin" class="form-control" id="checkin" required="">
+                            <input type="date" name="date" class="form-control" value="<?php echo htmlspecialchars($date); ?>" id="checkin">
+                            <div style="color: red;"><?= $date_err ?></div>
                         </div>
                     </div>
                 </div>
@@ -43,3 +93,4 @@ if(isset($_POST["name"])){
         </form>
     </div>
 </div>
+
