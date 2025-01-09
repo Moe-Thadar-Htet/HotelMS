@@ -17,3 +17,13 @@
      ?>
 </div>
 <?php require_once("../layout/footer2.php") ?>
+<?php
+if($_SERVER["REQUEST_METHOD"] == "POST") {
+    ?>
+    <script>
+        // $("#openBookModal").click();
+        document.querySelector("#openBookModal").click();
+    </script>
+    <?php 
+}
+?>
