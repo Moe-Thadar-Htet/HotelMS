@@ -1,3 +1,9 @@
+<?php 
+if(isset($_POST["name"])){
+    $name = $_POST["name"];
+    echo "hello";
+}
+ ?>
 <div class="modal fade" id="bookRoomModal">
     <div class="modal-dialog">
         <form method="post">

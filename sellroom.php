@@ -1,4 +1,4 @@
-<style>
+<!-- <style>
     #valid{
     height: 35px;
     color: red;
@@ -6,9 +6,10 @@
     padding-left: 10px;
     font-size: 14px;
     font-style: italic;
+    font-size:12px;
     }
    
-</style>
+</style> -->
 
 <?php 
 
@@ -18,6 +19,8 @@ $division = $division_err ="";
 $region = $region_err = "";
 $citizen = $citizen_err = "";
 $nrc_no = $nrc_no_err ="";
+$phone_no = $phone_no_err ="";
+$nrc = $nrc_err ="";
 $email = $email_err ="";
 $checkin = $checkin_err ="";
 $checkout =$checkout_err = "";
@@ -26,17 +29,17 @@ $nrcstatus = true;
 $status = true;
 
 if(isset($_POST["customer_name"])){
-    $customer_name = $_POST["customer_name "];
+    $roomIdValue = $_POST["roomId"];
+    $customer_name = $_POST["customer_name"];
     $phone_no =  $_POST["phoneNumber"];
     $division =  $_POST["division"];
     $region =  $_POST["region"];
     $citizen =  $_POST["citizen"];
     $nrc_no =  $_POST["nrc_no"];
+    $nrc = $division."/".$region. $citizen.$nrc_no;
     $email = $_POST["email"];
     $checkin = $_POST["checkin"];
     $checkout = $_POST["checkout"];
-   
-
 
     if($customer_name  === ""){
         $customer_name_err = "Customer Name doesn't blank! ";
@@ -66,6 +69,10 @@ if(isset($_POST["customer_name"])){
         $invalid = false;
         $nrcstatus = false;
     }
+    if(!$nrcstatus){
+        $nrc_err = "Your NRC Code must be required!";
+        $invalid = false;
+    }
     if($email === ""){
         $email_err = "Email doesn't blank! ";
         $invalid = false;
@@ -78,19 +85,15 @@ if(isset($_POST["customer_name"])){
         $checkout_err = "Checkout Date doesn't blank! ";
         $invalid = false;
     }
-}
-
-   if($nrcstatus){
-        $nrc = $division . $region . $citizen . $nrc_no ;
-        $status = false;
-    }
-
     if($invalid){
         if($status){
-            add_customer($mysqli,$customer_name,$nrc,$phone_no,$email,$checkin,$checkout);
+            add_customer($mysqli,$customer_name,$nrc,$phone_no,$email,$checkin,$checkout,$roomIdValue);
+            echo "<script>location.replace('./index.php');</script>";
         }
-
+    
     }
+}
+
 ?>
 
 
@@ -105,37 +108,46 @@ if(isset($_POST["customer_name"])){
                 <div class="modal-body">
                     <input type="hidden" class="roomIdValue" name="roomId">
                     <div class="form-floating mt-2">
-                        <input type="text" name="customer_name " class="form-control" id="customer_name " placeholder="Enter customer name" value="<?= $customer_name?>" />
+                        <input type="text" value="<?= $customer_name?>" name="customer_name" class="form-control" id="customer_name " placeholder="Enter customer name"  />
                         <label for="customer_name " class="form-label">Customer Name</label>
-                        <div class="text-danger" id="valid" style="font-size:12px;"><?= $customer_name_err?></div>
+                        <div class="text-danger" id="valid"><?= $customer_name_err?></div>
                     </div>
+                    <span class="">NRC</span>
                     <div class="card">
                         <div class="crad-body" style="height:250px;">
                             <div class="fornrc d-flex mt-3">
                                 <div class="form-group ms-3 col-4">
                                     <label for="division" class="form-label"> Division</label>
                                     <select name="division" id="division" class="form-select">
-                                        <option value="1">1/</option>
-                                        <option value="2">2/</option>
-                                        <option value="3">3/</option>
-                                        <option value="4">4/</option>
-                                        <option value="5">5/</option>
-                                        <option value="6">6/</option>
-                                        <option value="7">7/</option>
-                                        <option value="8">8/</option>
-                                        <option value="9">9/</option>
-                                        <option value="10">10/</option>
-                                        <option value="11">11/</option>
-                                        <option value="12">12/</option>
-                                        <option value="13">13/</option>
-                                        <option value="14">14/</option>     
-                                    </select>
-                                    <div class="text-danger" id="valid" style="font-size:12px;"><?= $division_err ?></div>
+                                        <option value="" selected>Select division</option>
+                                        <option value="1" <?php if($division==1)echo "selected" ?>>1</option>
+                                        <option value="2" <?php if($division==2)echo "selected" ?>>2</option>
+                                        <option value="3" <?php if($division==3)echo "selected" ?>>3</option>
+                                        <option value="4" <?php if($division==4)echo "selected" ?>>4</option>
+                                        <option value="5" <?php if($division==5)echo "selected" ?>>5</option>
+                                        <option value="6" <?php if($division==6)echo "selected" ?>>6</option>
+                                        <option value="7" <?php if($division==7)echo "selected" ?>>7</option>
+                                        <option value="8" <?php if($division==8)echo "selected" ?>>8</option>
+                                        <option value="9" <?php if($division==9)echo "selected" ?>>9</option>
+                                        <option value="10" <?php if($division==10)echo "selected" ?>>10</option>
+                                        <option value="11" <?php if($division==11)echo "selected" ?>>11</option>
+                                        <option value="12" <?php if($division==12)echo "selected" ?>>12</option>
+                                        <option value="13" <?php if($division==13)echo "selected" ?>>13</option>
+                                        <option value="14" <?php if($division==14)echo "selected" ?>>14</option>
+                                    </select>                        
+                                    <div class="text-danger" id="valid"><?= $division_err ?></div>   
                                 </div>
+                                
                                 <div class="form-group  ms-5 col-6">
                                     <label for="region" class="form-label">Region</label>
-                                    <input type="text" name="region" class="form-control" id="region" placeholder="Enter Region Name" />
-                                    <div class="text-danger" id="valid" style="font-size:12px;"><?= $region_err ?></div>
+                                    <select name="region" id="region" class="form-select">
+                                    <option value="">Select region</option>
+                                        <option value="1" <?php if($region==1)echo "selected" ?>>YAGANA</option>
+                                        <option value="2" <?php if($region==2)echo "selected" ?>>KANTANA</option>
+                                        <option value="3" <?php if($region==3)echo "selected" ?>>MADALA</option>
+                                    </select>
+                                    <div class="text-danger" id="valid"><?= $region_err ?></div>
+                                    
                                 </div>
 
                             </div>
@@ -144,43 +156,46 @@ if(isset($_POST["customer_name"])){
                                 <div class="form-group ms-3 col-4">
                                     <label for="citizen" class="form-label">Citizen</label>
                                     <select name="citizen" id="citizen" class="form-select">
-                                        <option value="1">C (Citizen) </option>
-                                        <option value="2">AC (Associated Citizen) </option>
-                                        <option value="3">NC (Naturalized Cititzen) </option>
-                                        <option value="4">V (National Verification) </option>
-                                        <option value="5">M (Monk) </option>
-                                        <option value="6">N (Nun) </option>
+                                    <option value="">Select Citizen</option>
+                                        <option value="(C)" <?php if($citizen=="(C)")echo "selected" ?>>C (Citizen) </option>
+                                        <option value="(AC)" <?php if($citizen=="(AC)")echo "selected" ?>>AC (Associated Citizen) </option>
+                                        <option value="(NC)" <?php if($citizen=="(NC)")echo "selected" ?>>NC (Naturalized Cititzen) </option>
+                                        <option value="(V)" <?php if($citizen=="(V)")echo "selected" ?>>V (National Verification) </option>
+                                        <option value="(M)" <?php if($citizen=="(M)")echo "selected" ?>>M (Monk) </option>
+                                        <option value="(N)" <?php if($citizen=="(N)")echo "selected" ?>>N (Nun) </option>
                                     </select>
-                                    <div class="text-danger" id="valid" style="font-size:12px;"></div>
+                                    <div class="text-danger" id="valid"><?= $citizen_err?></div>
                                 </div>
                                 <div class="form-group ms-5 col-6">
                                     <label for="nrc_no" class="form-label">NRC Number</label>
-                                    <input type="number" name="nrc_no" class="form-control" id="nrc_no" placeholder="Enter Your NRC Number" />
-                                    <div class="text-danger" id="valid" style="font-size:12px;"></div>
+                                    <input type="number" value="<?= $nrc_no?>" name="nrc_no" class="form-control" id="nrc_no" placeholder="Enter Your NRC Number" />
+                                    <div class="text-danger" id="valid" style="font-size:12px;"><?= $nrc_no_err ?></div>
                                 </div>
                             </div>
                         </div>
                     </div>
+                    <div class="text-danger" id="valid"><?= $nrc_err ?></div>
                     <div class="form-floating mt-2">
-                        <input type="number" name="phoneNumber" class="form-control" id="phoneNumber" value="<?= $phone?>" />
+                        <input type="number" value="<?= $phone_no ?>" name="phoneNumber" class="form-control" id="phoneNumber" value="<?= $phone?>" />
                         <label for="phoneNumber" class="form-label">Phone Number</label>
-                        <div class="text-danger" id="valid" style="font-size:12px;"><?= $phone_err?></div>
+                        <div class="text-danger" id="valid"><?= $phone_no_err?></div>
                     </div>
 
                     <div class="form-floating mt-2">
-                        <input type="text" name="email" class="form-control" id="email" value="<?= $email?>" />
+                        <input type="text" value="<?= $email ?>" name="email" class="form-control" id="email" value="<?= $email?>" />
                         <label for="email" class="form-label">Email Address</label>
-                        <div class="text-danger" id="valid" style="font-size:12px;"><?= $email_err?></div>
+                        <div class="text-danger" id="valid"><?= $email_err?></div>
                     </div>
 
                     <div class="form-floating mt-2">
                         <div class="mt-4">Check-in Date
-                            <input type="date" name="checkin" class="form-control" id="checkin" required="">
-                            <div class="text-danger" id="valid" style="font-size:12px;"><?= $checkin_err?></div>
+                            <input type="date" value="<?= $checkin?>" name="checkin" class="form-control" id="checkin" >
+                            <div class="text-danger" id="valid"><?= $checkin_err?></div>
                         </div>
                         
                         <div class="mt-4">Check-out Date
-                            <input type="date" name="checkout" class="form-control" id="checkout" required="">
+                            <input type="date" value="<?= $checkout?>" name="checkout" class="form-control" id="checkout" >
+                            <div class="text-danger" id="valid"><?= $checkout_err?></div>
                         </div>
                     </div>
                 </div>

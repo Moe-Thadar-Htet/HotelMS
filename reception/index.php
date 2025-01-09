@@ -17,3 +17,13 @@
      ?>
 </div>
 <?php require_once("../layout/footer2.php") ?>
+
+<?php 
+if(isset($_POST["customer_name"])){
+    ?>
+    <script>
+        document.querySelector("#openSellRoomMOdal").click();
+    </script>
+    <?php
+}
+?>

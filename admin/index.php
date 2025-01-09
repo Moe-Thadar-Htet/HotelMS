@@ -3,26 +3,18 @@
 <?php require_once("../layout/navbar.php")?>
 <div class="role-container mx-auto mt-5">
     <div class="admin">
-        <div class="card col-2">
-            <div class="card-body">
-                <i class="fa-solid fa-hotel"></i>
-                <a href="./index.php" class="card-title card-role">Add Home</a>
-            </div> 
-
-        </div>
-        <div class="card col-2">
-            <div class="card-body">
-                <i class="fa-solid fa-hotel"></i>
-                <a href="./add_room.php" class="card-title card-role">Room</a>
-            </div>
-            
-        </div>
-        <div class="card col-2">
-            <div class="card-body">
-                <i class="fa-solid fa-hotel"></i>
-                <a href="./add_room_type.php" class="card-title card-role">Room Type</a>
-            </div>
-        </div>
+        <button class="btn btn-s btn-md col-3">
+            <a href="./index.php" class="card-title card-role"><i class="fa-solid fa-home"></i>Add Home</a>
+        </button>
+        <button class="btn btn-admin btn-md col-3">        
+            <a href="./add_room.php" class="card-role"> <i class="fa-solid fa-hotel"></i>Room</a>
+        </button>
+        <button class="btn btn-admin btn-md col-3">        
+            <a href="./add_room.php" class="card-role"> <i class="fa-solid fa-hotel"></i>Room Type</a>
+        </button>
+       
+    </div>
+    <div class="admin"  class="admin bg-light p-3">
         <div class="card col-2">
             <div class="card-body">
                 <i class="fa-solid fa-hotel"></i>
@@ -30,15 +22,15 @@
             </div>
 
         </div>
+          
+  
         <div class="card col-2">
             <div class="card-body">
                 <i class="fa-solid fa-hotel"></i>
                 <a href="./add_booking.php" class="card-title card-role">Booking</a>
             </div>
         </div>
-     
-    </div>
-    <div class="admin">
+   
         <div class="card col-2">
             <div class="card-body">
                 <i class="fa-solid fa-hotel"></i>
@@ -46,6 +38,8 @@
             </div>
 
         </div>
+    </div>
+    <div class="admin">
         <div class="card col-2">
             <div class="card-body">
                 <i class="fa-solid fa-hotel"></i>
@@ -53,6 +47,8 @@
             </div>
 
         </div>
+
+
         <div class="card col-2">
             <div class="card-body">
                 <i class="fa-solid fa-hotel"></i>
@@ -67,6 +63,8 @@
             </div>
 
         </div>
+    </div>
+    <div class="admin">  
         <div class="card col-2">
             <div class="card-body">
                 <i class="fa-solid fa-hotel"></i>
@@ -74,6 +72,7 @@
             </div>
         </div>
     </div>
+
     
       
 </div>
