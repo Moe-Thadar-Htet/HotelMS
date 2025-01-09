@@ -4,7 +4,10 @@
             <a href="index.html" class="navbar-brand me-5" style="color: #F5F5F5;">
                 Reception
             </a>
-
+        <?php
+        // if(isset($user["role"]==))
+        
+        ?>
             <ul class="navbar-nav">
                 <li class="nav-item">
                     <a href="../admin/index.php" class="nav-link"  >
