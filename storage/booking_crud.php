@@ -1,9 +1,22 @@
 <?php 
 
-function add_booking($mysqli,$room_id,$checkin_date,$checkout_date,$customer_id)
+function add_booking($mysqli,$room_id,$checkin_date,$checkout_date,$email,$name,$phonenumber)
 {
-    $sql = "INSERT INTO `booking` (`room_id`,`checkin_date`,`checkout_date`,`customer_id`) VALUE ('$room_id','$checkin_date','$checkout_date','$customer_id')";
-    return $mysqli->query( $sql);
+    $sql = "SELECT * FROM `customer` WHERE `email`='$email'";
+    $customerResult = $mysqli->query($sql);
+    $customer = $customerResult->fetch_assoc();
+    if($customer){
+        $sql = "UPDATE `customer` SET `customer_name`='$name' , `phone_no`='$phonenumber' WHERE `id`=$customer[id]";
+        if($mysqli->query($sql)){
+            $sql = "INSERT INTO `booking` (`room_id`,`checkin_date`,`checkout_date`,`customer_id`) VALUE ($room_id,'$checkin_date','$checkout_date',$customer[id])";
+            $mysqli->query( $sql);
+            $sql = "UPDATE `room` SET `taken`=2 where `id`=$room_id";
+            $mysqli->query($sql);
+            return true;
+        }
+    }else{
+        return false;
+    }
 }
 function get_booking($mysqli)
 {

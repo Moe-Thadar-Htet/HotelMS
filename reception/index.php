@@ -26,4 +26,11 @@ if(isset($_POST["customer_name"])){
     </script>
     <?php
 }
+if(isset($_POST["name"])){
+    ?>
+    <script>
+        document.querySelector("#openBookModal").click();
+    </script>
+    <?php
+}
 ?>

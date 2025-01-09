@@ -1,13 +1,15 @@
 <?php 
 
-    $name = $email = $phonenumber = $date = "";
-    $name_err = $email_err = $phonenumber_err = $date_err = "";
+    $name = $email = $phonenumber = $date = $checkout_date ="";
+    $name_err = $email_err = $phonenumber_err = $date_err =$checkout_date_err= "";
 
     if($_SERVER["REQUEST_METHOD"] == "POST") {
         $name = $_POST["name"];
         $email = $_POST["email"];
         $phonenumber = $_POST["phonenumber"];
         $date = $_POST["date"];
+        $checkout_date = $_POST["checkout_date"];
+        $roomIdValue = $_POST['roomId'];
         if(empty($name)) {
             $name_err = "Name can't be  blank!";
         } else {
@@ -36,13 +38,19 @@
         }
 
         if(empty($date)) {
-            $date_err = "Choose your booking Date.";
+            $date_err = "Choose your checkout Date.";
+        }
+        if(empty($checkout_date)) {
+            $checkout_date_err = "Choose your checkout Date.";
         }
 
-        if($name_err=="" && $email_err=="" && $phonenumber_err=="" && $date_err==""){
-            echo "<p>Form submitted successfully!</p>";
-
-            $name = $email = $phonenumber = $date = "";
+        if($name_err=="" && $email_err=="" && $phonenumber_err=="" && $date_err=="" && $checkout_date_err==""){
+            $status = add_booking($mysqli,$roomIdValue,$date,$checkout_date,$email,$name,$phonenumber);
+            if($status){
+                echo "<script>location.replace('./index.php');</script>";
+            }else{
+                $email_err = "Customer doen't have with this Email!";
+            }
         }
     }
 
@@ -82,6 +90,12 @@
                         <div class="mt-4">Check-in Date
                             <input type="date" name="date" class="form-control" value="<?php echo htmlspecialchars($date); ?>" id="checkin">
                             <div style="color: red;"><?= $date_err ?></div>
+                        </div>
+                    </div>
+                    <div class="form-floating mt-2">
+                        <div class="mt-4">Check-Out Date
+                            <input type="date" name="checkout_date" class="form-control" value="<?php echo htmlspecialchars($checkout_date); ?>" id="checkin">
+                            <div style="color: red;"><?= $checkout_date_err ?></div>
                         </div>
                     </div>
                 </div>
