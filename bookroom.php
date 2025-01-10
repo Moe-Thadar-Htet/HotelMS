@@ -40,7 +40,7 @@
         }
 
         if($name_err=="" && $email_err=="" && $phonenumber_err=="" && $date_err==""){
-            echo "<p>Form submitted successfully!</p>";
+             $successMessage = "Form submitted successfully!";
 
             $name = $email = $phonenumber = $date = "";
         }

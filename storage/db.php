@@ -19,15 +19,11 @@ function create_tables($mysqli)
     if(!$mysqli->query($sql)){
         return false;
     }
-<<<<<<< HEAD
-    
-=======
     $sql = "CREATE TABLE IF NOT EXISTS `customer` (`id` INT AUTO_INCREMENT,`customer_name` VARCHAR(45) NOT NULL,`nrc` VARCHAR(45) NOT NULL,`phone_no` INT NOT NULL ,`email` VARCHAR(100) NOT NULL,`checkin_date` DATETIME NOT NULL,`checkout_date` DATETIME NOT NULL,PRIMARY KEY (`id`))";
     if (!$mysqli->query($sql)) {
         return false;
     }
 
->>>>>>> 6380c4fc4e02a3f15b8898d56bfe387e88650f8d
     $sql = "CREATE TABLE IF NOT EXISTS `room_type`(`id` INT AUTO_INCREMENT,`room_type_name` VARCHAR(45) NOT NULL,`description` VARCHAR(100) NOT NULL, PRIMARY KEY(`id`))";
     if (!$mysqli->query($sql)) {
         return false;
