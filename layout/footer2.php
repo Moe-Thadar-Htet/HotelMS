@@ -25,6 +25,19 @@
         newMinCheckoutDate.setDate(newMinCheckoutDate.getDate() + 1);
         checkoutField.setAttribute('min', newMinCheckoutDate.toISOString().split('T')[0]);
     });
+    document.getElementById('checkin2').setAttribute('min', today); // Today for check-in
+    document.getElementById('checkout2').setAttribute('min', tomorrow); // Tomorrow for check-out
+
+    const checkinField2 = document.getElementById('checkin2');
+    const checkoutField2 = document.getElementById('checkout2');
+
+    checkinField.addEventListener('change', function () {
+        const checkinDate2 = checkinField2.value;
+
+        const newMinCheckoutDate2 = new Date(checkinDate2);
+        newMinCheckoutDate2.setDate(newMinCheckoutDate2.getDate() + 1);
+        checkoutField2.setAttribute('min', newMinCheckoutDate2.toISOString().split('T')[0]);
+    });
 </script>
 <script>
     let roomBtn = document.querySelectorAll(".room-btn");

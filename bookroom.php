@@ -88,13 +88,13 @@
 
                     <div class="form-floating mt-2">
                         <div class="mt-4">Check-in Date
-                            <input type="date" name="date" class="form-control" value="<?php echo htmlspecialchars($date); ?>" id="checkin">
+                            <input type="date" name="date" class="form-control" value="<?php echo htmlspecialchars($date); ?>" id="checkin2">
                             <div style="color: red;"><?= $date_err ?></div>
                         </div>
                     </div>
                     <div class="form-floating mt-2">
                         <div class="mt-4">Check-Out Date
-                            <input type="date" name="checkout_date" class="form-control" value="<?php echo htmlspecialchars($checkout_date); ?>" id="checkin">
+                            <input type="date" name="checkout_date" class="form-control" value="<?php echo htmlspecialchars($checkout_date); ?>" id="checkin2">
                             <div style="color: red;"><?= $checkout_date_err ?></div>
                         </div>
                     </div>
