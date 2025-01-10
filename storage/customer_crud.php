@@ -1,8 +1,15 @@
 <?php 
-function  add_customer($mysqli,$customer_name,$nrc,$phone_no,$email,$checkin,$checkout)
+function  add_customer($mysqli,$customer_name,$nrc,$phone_no,$email,$checkin,$checkout,$roomIdValue)
 {
     $sql = "INSERT INTO `customer` (`customer_name`,`nrc`,`phone_no`,`email`,`checkin_date`,`checkout_date`) VALUE ('$customer_name','$nrc','$phone_no','$email','$checkin','$checkout')";
-    return $mysqli->query($sql);
+    if($mysqli->query($sql)) {
+        $sql = "SELECT id FROM `customer` ORDER BY `id` desc limit 1";
+        $idResult = $mysqli->query($sql);
+        $id = $idResult->fetch_assoc()['id'];
+        $sql = "UPDATE `room` SET `taken`=1 where `id`=$roomIdValue";
+        $mysqli->query($sql);
+    }
+
 }
 function get_customer($mysqli)
 {
