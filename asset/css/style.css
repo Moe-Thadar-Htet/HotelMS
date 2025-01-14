@@ -103,6 +103,19 @@ body{
     text-align: center;
     text-decoration: none;
 }
+.btn-admin{
+    margin: 0px 40px;
+}
+
+.btn-admin:hover{
+    background-color: var(--bd-color);
+
+}
+
+.admin-text{
+    color:var(--nav-color);
+}
+
 
   
 
